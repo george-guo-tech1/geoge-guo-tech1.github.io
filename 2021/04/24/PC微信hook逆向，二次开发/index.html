@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"> 
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"georgeguoxv.gitee.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","Muse | Mist":220,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="PC逆向工具Ollydebug 简称ODOD是强大的动态调试工具，可以将C语言，C++，Python所写的二进制可执行文件（windows中的exe文件，bat文件）进行反汇编（转化为汇编语言源码） Cheat Engine 简称CECE可以监控exe程序的内存使用，实时调试和修改程序正在使用的内存 OD加CE进行微信逆向易语言TV视频教程 网易云课堂">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PC微信hook逆向，二次开发">
+<meta property="og:url" content="https://georgeguoxv.gitee.io/2021/04/24/PC%E5%BE%AE%E4%BF%A1hook%E9%80%86%E5%90%91%EF%BC%8C%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91/index.html">
+<meta property="og:site_name" content="George的博客">
+<meta property="og:description" content="PC逆向工具Ollydebug 简称ODOD是强大的动态调试工具，可以将C语言，C++，Python所写的二进制可执行文件（windows中的exe文件，bat文件）进行反汇编（转化为汇编语言源码） Cheat Engine 简称CECE可以监控exe程序的内存使用，实时调试和修改程序正在使用的内存 OD加CE进行微信逆向易语言TV视频教程 网易云课堂">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-04-23T16:20:51.000Z">
+<meta property="article:modified_time" content="2021-05-10T04:31:43.000Z">
+<meta property="article:author" content="George Guo">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://georgeguoxv.gitee.io/2021/04/24/PC%E5%BE%AE%E4%BF%A1hook%E9%80%86%E5%90%91%EF%BC%8C%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>PC微信hook逆向，二次开发 | George的博客</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-K1BDW9XHBV"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-K1BDW9XHBV');
+      }
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?ec3fe06eb0228c5b6ef8635fb259b905";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">George的博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">学习使我快乐</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://georgeguoxv.gitee.io/2021/04/24/PC%E5%BE%AE%E4%BF%A1hook%E9%80%86%E5%90%91%EF%BC%8C%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/favicon-32x32.png">
+      <meta itemprop="name" content="George Guo">
+      <meta itemprop="description" content="本博客为纯静态网站">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="George的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          PC微信hook逆向，二次开发
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-04-24 00:20:51" itemprop="dateCreated datePublished" datetime="2021-04-24T00:20:51+08:00">2021-04-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-10 12:31:43" itemprop="dateModified" datetime="2021-05-10T12:31:43+08:00">2021-05-10</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="PC逆向工具"><a href="#PC逆向工具" class="headerlink" title="PC逆向工具"></a>PC逆向工具</h2><h3 id="Ollydebug-简称OD"><a href="#Ollydebug-简称OD" class="headerlink" title="Ollydebug 简称OD"></a>Ollydebug 简称OD</h3><p>OD是强大的动态调试工具，可以将C语言，C++，Python所写的<em>二进制可执行文件（windows中的exe文件，bat文件）</em>进行反汇编（转化为汇编语言源码）</p>
+<h3 id="Cheat-Engine-简称CE"><a href="#Cheat-Engine-简称CE" class="headerlink" title="Cheat Engine 简称CE"></a>Cheat Engine 简称CE</h3><p>CE可以监控exe程序的内存使用，实时调试和修改程序正在使用的内存</p>
+<h2 id="OD加CE进行微信逆向"><a href="#OD加CE进行微信逆向" class="headerlink" title="OD加CE进行微信逆向"></a>OD加CE进行微信逆向</h2><p><a target="_blank" rel="noopener" href="https://jdvodluwytr3t.vod.126.net/jdvodluwytr3t/nos/mp4/2019/10/12/1215228153_a6a52b61b21343a59d9a5d12ff4be24b_sd.mp4?ak=7909bff134372bffca53cdc2c17adc27a4c38c6336120510aea1ae1790819de8fc365eb2b948d8019ccc8c25c2173780d8aa2707b304e327656fb8e94f65ee5f3059f726dc7bb86b92adbc3d5b34b132fd90f6c1be003a6a5233298b0c261615ab1751379953e9446561f60f0e4ab9c0">易语言TV视频教程</a></p>
+<p><a target="_blank" rel="noopener" href="https://study.163.com/course/courseLearn.htm?courseId=1209558809#/learn/video?lessonId=1279878243&amp;courseId=1209558809">网易云课堂</a></p>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/%E5%BE%AE%E4%BF%A1.png" alt="George Guo 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/%E6%94%AF%E4%BB%98%E5%AE%9D.png" alt="George Guo 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/04/06/websocket%E5%8D%8F%E8%AE%AE%E5%92%8Cwebrtc%E5%8D%8F%E8%AE%AE/" rel="prev" title="websocket协议和webrtc协议">
+      <i class="fa fa-chevron-left"></i> websocket协议和webrtc协议
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/05/06/windows%E8%B0%83%E8%AF%95%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8%EF%BC%8C%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E9%80%86%E5%90%91%E5%BC%80%E5%8F%91/" rel="next" title="windows调试器的使用，汇编语言逆向开发">
+      windows调试器的使用，汇编语言逆向开发 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+       
+       <div id="gitment-container"></div>
+       
+    
+  </div>
+
+  
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=230 src="//music.163.com/outchain/player?type=0&id=401771073&auto=1&height=430"></iframe>
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#PC%E9%80%86%E5%90%91%E5%B7%A5%E5%85%B7"><span class="nav-number">1.</span> <span class="nav-text">PC逆向工具</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Ollydebug-%E7%AE%80%E7%A7%B0OD"><span class="nav-number">1.1.</span> <span class="nav-text">Ollydebug 简称OD</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cheat-Engine-%E7%AE%80%E7%A7%B0CE"><span class="nav-number">1.2.</span> <span class="nav-text">Cheat Engine 简称CE</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OD%E5%8A%A0CE%E8%BF%9B%E8%A1%8C%E5%BE%AE%E4%BF%A1%E9%80%86%E5%90%91"><span class="nav-number">2.</span> <span class="nav-text">OD加CE进行微信逆向</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="George Guo"
+      src="/images/favicon-32x32.png">
+  <p class="site-author-name" itemprop="name">George Guo</p>
+  <div class="site-description" itemprop="description">本博客为纯静态网站</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/George-Guo-tech" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;George-Guo-tech" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/GeorgeGuoXv" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;GeorgeGuoXv" rel="noopener" target="_blank"><i class="fa fa-fw fa-custom gitee"></i>Gitee</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://m.bilibili.com/space/553832852" title="Bilibili → https:&#x2F;&#x2F;m.bilibili.com&#x2F;space&#x2F;553832852" rel="noopener" target="_blank"><i class="fa fa-fw fa-custom bilibili"></i>Bilibili</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/chengciming/wechatPc" title="https:&#x2F;&#x2F;github.com&#x2F;chengciming&#x2F;wechatPc" rel="noopener" target="_blank">微信机器人项目(C++,php,html5)</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/cspinstructor/my-crackmes" title="https:&#x2F;&#x2F;github.com&#x2F;cspinstructor&#x2F;my-crackmes" rel="noopener" target="_blank">C++逆向练习</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+<script src="/live2d/autoload.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/js/sakura.js"></script>
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+  <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script><script src="/js/src/md5.min.js"></script>
+
+<div id="gitalk-container"></div>
+<script>
+
+const gitalk = new Gitalk({
+  clientID: '52d4fe3261227490009f',
+  clientSecret: 'abf5c09c8aeb14f4bcbf49b9fc838aef6ef9bc14',
+  repo: 'George-Guo-tech.github.io',      // The repository of store comments,
+  owner: 'George-Guo-tech',
+  admin: ['George-Guo-tech'],
+  id: md5(location.pathname),      // Ensure uniqueness and length less than 50
+  distractionFreeMode: false  // Facebook-like distraction free mode
+})
+
+gitalk.render('gitalk-container')
+//   var gitment = new Gitment({
+//   id: 'www.bibibigeorge.site',
+//   owner: 'George-Guo-tech',
+//   repo: 'George-Guo-tech.github.io',
+//   oauth: {
+//     client_id: '52d4fe3261227490009f',
+//     client_secret: 'abf5c09c8aeb14f4bcbf49b9fc838aef6ef9bc14',
+//   },
+//   // ...
+//   // For more available options, check out the documentation below
+// })
+//   // gitment.render('container')
+//   gitment.render(document.getElementById('comments'))
+
+
+jQuery(document).ready(function() {
+    function c() {
+        /* 排除首页（记得自行修改下首页地址） */
+	if (location.href != "https://bibibigeorge.site") { document.title = document[a] ? "(つェ⊂)誒呀→《" + d + "》" : "(*´∇｀*) 咦好了→《" + d + "》" }
+    }
+    var a, b, d = document.title;
+    "undefined" != typeof document.hidden ? (a = "hidden", b = "visibilitychange") : "undefined" != typeof document.mozHidden ? (a = "mozHidden", b = "mozvisibilitychange") : "undefined" != typeof document.webkitHidden && (a = "webkitHidden", b = "webkitvisibilitychange");
+    "undefined" == typeof document.addEventListener && "undefined" == typeof document[a] || document.addEventListener(b, c, !1)
+});
+</script>
+
+	<script type="text/javascript" src="/js/src/clicklove.js"></script>
+	  <!-- <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script> -->
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">George Guo</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+  <div class="addthis_inline_share_toolbox">
+    <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-6059e3bca1c1bc91" async="async"></script>
+  </div>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<span id="busuanzi_container_site_pv">
+| 本站总访问量<span style="color:#FA8072" id="busuanzi_value_site_pv"></span>次
+</span>
+<span id="busuanzi_container_site_uv">
+| 本站访客数<span style="color:#FA8072" id="busuanzi_value_site_uv"></span>人次
+</span>
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>

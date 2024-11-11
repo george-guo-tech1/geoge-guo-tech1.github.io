@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"> 
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"georgeguoxv.gitee.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","Muse | Mist":220,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="本博客为纯静态网站">
+<meta property="og:type" content="website">
+<meta property="og:title" content="George的博客">
+<meta property="og:url" content="https://georgeguoxv.gitee.io/index.html">
+<meta property="og:site_name" content="George的博客">
+<meta property="og:description" content="本博客为纯静态网站">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="George Guo">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://georgeguoxv.gitee.io/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>George的博客</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-K1BDW9XHBV"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-K1BDW9XHBV');
+      }
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?ec3fe06eb0228c5b6ef8635fb259b905";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">George的博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">学习使我快乐</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://georgeguoxv.gitee.io/2021/05/06/windows%E8%B0%83%E8%AF%95%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8%EF%BC%8C%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E9%80%86%E5%90%91%E5%BC%80%E5%8F%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/favicon-32x32.png">
+      <meta itemprop="name" content="George Guo">
+      <meta itemprop="description" content="本博客为纯静态网站">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="George的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/06/windows%E8%B0%83%E8%AF%95%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8%EF%BC%8C%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E9%80%86%E5%90%91%E5%BC%80%E5%8F%91/" class="post-title-link" itemprop="url">windows调试器的使用，汇编语言逆向开发</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-05-06 00:17:12" itemprop="dateCreated datePublished" datetime="2021-05-06T00:17:12+08:00">2021-05-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-10 12:31:43" itemprop="dateModified" datetime="2021-05-10T12:31:43+08:00">2021-05-10</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="windows本地调试器"><a href="#windows本地调试器" class="headerlink" title="windows本地调试器"></a>windows本地调试器</h2><p>常用的调试器有很多，基本上所有编程语言的IDE都会带有调试的功能，python的pycharm, jupyter notebook, java的 eclipse，intelliJ, c++的visual studio</p>
+<p>Windows本地调试器（以Windbg为例）不同于编程语言的调试，Windbg调试的对象是一个程序所调用的windows操作系统的API，例如使用USER32!CreateWindowExA创建窗口和使用ws2_32.dll来访问网络</p>
+<p>接下来，结合编程语言的调试（源码调试）和操作系统API的调试，就能对项目进行深入的研究</p>
+<p>即便是在没有源码的情况下，windows本地调试也能给我们一些线索，帮助逆向开发</p>
+<h2 id="大佬的Github源码"><a href="#大佬的Github源码" class="headerlink" title="大佬的Github源码"></a>大佬的Github源码</h2><p><a target="_blank" rel="noopener" href="https://github.com/chengciming/wechatPc">https://github.com/chengciming/wechatPc</a></p>
+<p>下载源码，我们就可以开始了  </p>
+<p>国内可以使用gitee，一些github加速网站，以及一些github镜像网站  </p>
+<p>不想自己下载可以加群 <code>147694968</code> 求助源码</p>
+<p>将wechatPc-master.rar文件下载到本地后，解压到当前文件夹</p>
+<p><img src="/2021/05/06/windows%E8%B0%83%E8%AF%95%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8%EF%BC%8C%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E9%80%86%E5%90%91%E5%BC%80%E5%8F%91/image-20210506182723494.png" alt></p>
+<p>wechatRobot目录内是执行注入操作的wechatRobot.exe的项目源码</p>
+<p>wechatdll目录内是需要被注入的wechatdll.dll的项目源码</p>
+<p>Bin目录是这两个项目的成品输出目录</p>
+<h2 id="步骤-视频演示"><a href="#步骤-视频演示" class="headerlink" title="步骤+视频演示"></a>步骤+视频演示</h2><h3 id="大佬的github上给出了项目的通信机制"><a href="#大佬的github上给出了项目的通信机制" class="headerlink" title="大佬的github上给出了项目的通信机制"></a>大佬的github上给出了项目的通信机制</h3><p>通讯流程：WechatDll(注入到微信) &lt;—&gt; [WS] &lt;—&gt; WechatRobot(操作界面) &lt;—&gt; [WS] &lt;—&gt; ServerPhp(服务端) &lt;—&gt; [WS] &lt;—&gt; Web(HTML操作界面)</p>
+<p>我们以此流程来进行</p>
+<h3 id="步骤0-开启微信2-8-0-121"><a href="#步骤0-开启微信2-8-0-121" class="headerlink" title="步骤0 开启微信2.8.0.121"></a>步骤0 开启微信2.8.0.121</h3><p>如图</p>
+<p><img src="/2021/05/06/windows%E8%B0%83%E8%AF%95%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8%EF%BC%8C%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E9%80%86%E5%90%91%E5%BC%80%E5%8F%91/image-20210507133202708.png" alt="image-20210507133202708"></p>
+<p>如果你打开2.8.0.121被要求强制升级，先将微信安装的文件夹备份到别的地方，再升级当前微信。升级后卸载新版本微信，将旧版本复制回来。（这个方法仅供参考）</p>
+<p>这时我们打开 procexp.exe ，没有的话到微软官方网站下载sysinternals工具包</p>
+<p><img src="/2021/05/06/windows%E8%B0%83%E8%AF%95%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8%EF%BC%8C%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E9%80%86%E5%90%91%E5%BC%80%E5%8F%91/image-20210507134844407.png" alt="image-20210507134844407">点击那个准星，拖到打开的微信的窗口上，它就自动帮我们定位到了进程，可以看到进程ID是11368</p>
+<p>接下来打开windbg</p>
+<p><img src="/2021/05/06/windows%E8%B0%83%E8%AF%95%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8%EF%BC%8C%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E9%80%86%E5%90%91%E5%BC%80%E5%8F%91/image-20210507135115012.png" alt="image-20210507135115012">点击file，attach to a process, 在弹窗的ProcessID输入刚刚找到的ID<img src="/2021/05/06/windows%E8%B0%83%E8%AF%95%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8%EF%BC%8C%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E9%80%86%E5%90%91%E5%BC%80%E5%8F%91/image-20210507135225209.png" alt="image-20210507135225209"></p>
+<p>点击OK之后，你会发现微信的窗口怎么点都没反应，这是因为这个进程已经被windbg暂停了，如果你的windbg设置好了符号，你就可以看到windbg自动识别出来了微信进程所调用的所有dll模块，设置符号的方法如图所示：<img src="/2021/05/06/windows%E8%B0%83%E8%AF%95%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8%EF%BC%8C%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E9%80%86%E5%90%91%E5%BC%80%E5%8F%91/image-20210507135912353.png" alt="image-20210507135912353"><img src="/2021/05/06/windows%E8%B0%83%E8%AF%95%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8%EF%BC%8C%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E9%80%86%E5%90%91%E5%BC%80%E5%8F%91/image-20210507135951315.png" alt="image-20210507135951315"></p>
+<p>可以按照我的格式设置</p>
+<p>之后输入命令<code>.reload</code> 重新加载符号，再输入<code>x wechatwin!*</code>，这个命令能列出wechatwin.dll里的所有函数</p>
+<p><img src="/2021/05/06/windows%E8%B0%83%E8%AF%95%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8%EF%BC%8C%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E9%80%86%E5%90%91%E5%BC%80%E5%8F%91/image-20210507140327790.png" alt="image-20210507140327790"></p>
+<p>我们甚至可以看到有一个叫<code>StartWachat</code>的函数</p>
+<p>输入命令<code>lmDvmWeChatwin</code>，我们可以看到公司名字是腾讯<img src="/2021/05/06/windows%E8%B0%83%E8%AF%95%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8%EF%BC%8C%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E9%80%86%E5%90%91%E5%BC%80%E5%8F%91/image-20210507140906143.png" alt="image-20210507140906143"></p>
+<p>输入<code>lmDvmWeChatdll</code>，会发现什么都没有，这是因为我们还没有注入我们的wechatdll.dll</p>
+<h3 id="步骤1-开启php服务端和web端"><a href="#步骤1-开启php服务端和web端" class="headerlink" title="步骤1 开启php服务端和web端"></a>步骤1 开启php服务端和web端</h3><p>首先介绍这个项目的结构和功能，这个项目的根本功能是：在web端（web目录下的index.html）里我们的所有操作都能转化成微信exe进程的操作。</p>
+<p>每当我们在web端点击新开一个微信并且登录进去，php服务端（相当于一个ws服务器）以及hook端（wechatRobot.exe）就将这个微信账号和一个微信的exe进程相联系起来。具体的实现方法是将web端发送的ws（websocket， 不懂请看我关于websocket的文章）操作指令包转发给微信exe进程，从而实现在web端控制exe。</p>
+<p>php服务端会一直检测当前的web进程以及wechatrobot.exe进程,将所有web端的操作和消息转发给wechatrobot.exe,wechatrobot.exe验证web端身份后将消息发给对应的微信exe</p>
+<p>首先开启php服务端，需要装有compser的php环境，要么自己安装composer,要么下载作者github的vender目录。 进入ServerPhp目录，运行index.php   (进入ServerPhp文件夹，按住shift右键空白处，选择在此处打开powershell)</p>
+<p>进入powershell后，输入命令<code>../phpbin/php.exe index.php</code>,（如果你自己安裝了php环境，就可以使用<code>php index.php</code>）开启后如图</p>
+<p><img src="/2021/05/06/windows%E8%B0%83%E8%AF%95%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8%EF%BC%8C%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E9%80%86%E5%90%91%E5%BC%80%E5%8F%91/image-20210506194832735.png" alt="image-20210506194832735">此时php已经开始监听web端和hook端了，hook端将消息传到8686端口，php就能收到，php同样可以从8686发送消息给hook端</p>
+<p>这时我们打开Web目录里的index.html，会看到<img src="/2021/05/06/windows%E8%B0%83%E8%AF%95%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8%EF%BC%8C%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E9%80%86%E5%90%91%E5%BC%80%E5%8F%91/image-20210506195438059.png" alt="image-20210506195438059">服务端已经发现了这个web端，并赋予这个web端id为1</p>
+<p>这时我们在web端点击绿色微信图标，点击新开一个<img src="/2021/05/06/windows%E8%B0%83%E8%AF%95%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8%EF%BC%8C%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E9%80%86%E5%90%91%E5%BC%80%E5%8F%91/image-20210506195830487.png" alt="image-20210506195830487">红色的提示意思是没有发现在线的微信，这是因为我们还没有将hook端连接到服务器</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/05/06/windows%E8%B0%83%E8%AF%95%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8%EF%BC%8C%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E9%80%86%E5%90%91%E5%BC%80%E5%8F%91/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://georgeguoxv.gitee.io/2021/04/24/PC%E5%BE%AE%E4%BF%A1hook%E9%80%86%E5%90%91%EF%BC%8C%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/favicon-32x32.png">
+      <meta itemprop="name" content="George Guo">
+      <meta itemprop="description" content="本博客为纯静态网站">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="George的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/24/PC%E5%BE%AE%E4%BF%A1hook%E9%80%86%E5%90%91%EF%BC%8C%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91/" class="post-title-link" itemprop="url">PC微信hook逆向，二次开发</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-04-24 00:20:51" itemprop="dateCreated datePublished" datetime="2021-04-24T00:20:51+08:00">2021-04-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-10 12:31:43" itemprop="dateModified" datetime="2021-05-10T12:31:43+08:00">2021-05-10</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="PC逆向工具"><a href="#PC逆向工具" class="headerlink" title="PC逆向工具"></a>PC逆向工具</h2><h3 id="Ollydebug-简称OD"><a href="#Ollydebug-简称OD" class="headerlink" title="Ollydebug 简称OD"></a>Ollydebug 简称OD</h3><p>OD是强大的动态调试工具，可以将C语言，C++，Python所写的<em>二进制可执行文件（windows中的exe文件，bat文件）</em>进行反汇编（转化为汇编语言源码）</p>
+<h3 id="Cheat-Engine-简称CE"><a href="#Cheat-Engine-简称CE" class="headerlink" title="Cheat Engine 简称CE"></a>Cheat Engine 简称CE</h3><p>CE可以监控exe程序的内存使用，实时调试和修改程序正在使用的内存</p>
+<h2 id="OD加CE进行微信逆向"><a href="#OD加CE进行微信逆向" class="headerlink" title="OD加CE进行微信逆向"></a>OD加CE进行微信逆向</h2><p><a target="_blank" rel="noopener" href="https://jdvodluwytr3t.vod.126.net/jdvodluwytr3t/nos/mp4/2019/10/12/1215228153_a6a52b61b21343a59d9a5d12ff4be24b_sd.mp4?ak=7909bff134372bffca53cdc2c17adc27a4c38c6336120510aea1ae1790819de8fc365eb2b948d8019ccc8c25c2173780d8aa2707b304e327656fb8e94f65ee5f3059f726dc7bb86b92adbc3d5b34b132fd90f6c1be003a6a5233298b0c261615ab1751379953e9446561f60f0e4ab9c0">易语言TV视频教程</a></p>
+<p><a target="_blank" rel="noopener" href="https://study.163.com/course/courseLearn.htm?courseId=1209558809#/learn/video?lessonId=1279878243&amp;courseId=1209558809">网易云课堂</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://georgeguoxv.gitee.io/2021/04/06/websocket%E5%8D%8F%E8%AE%AE%E5%92%8Cwebrtc%E5%8D%8F%E8%AE%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/favicon-32x32.png">
+      <meta itemprop="name" content="George Guo">
+      <meta itemprop="description" content="本博客为纯静态网站">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="George的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/06/websocket%E5%8D%8F%E8%AE%AE%E5%92%8Cwebrtc%E5%8D%8F%E8%AE%AE/" class="post-title-link" itemprop="url">websocket协议和webrtc协议</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-04-06 23:06:28" itemprop="dateCreated datePublished" datetime="2021-04-06T23:06:28+08:00">2021-04-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-10 12:31:43" itemprop="dateModified" datetime="2021-05-10T12:31:43+08:00">2021-05-10</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="websocket协议"><a href="#websocket协议" class="headerlink" title="websocket协议"></a>websocket协议</h2><p>类似于http1.1协议的keep alive      <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=2Nt-ZrNP22A&amp;t=472s">Youtube教程</a><br>多数编程语言都有现成的websocket库可以使用，</p>
+<p>因为个人喜好原因，以Nodejs的socket.io库为例</p>
+<h2 id="使用Nodejs编写一个websocket多人线上共享编辑的app"><a href="#使用Nodejs编写一个websocket多人线上共享编辑的app" class="headerlink" title="使用Nodejs编写一个websocket多人线上共享编辑的app"></a>使用Nodejs编写一个websocket多人线上共享编辑的app</h2><h3 id="app后端"><a href="#app后端" class="headerlink" title="app后端"></a>app后端</h3><p>首先你要装好nodejs和npm，接着建一个新的文件夹，作为项目的根目录。</p>
+<p>Nodejs需要库：socket.io 和express </p>
+<p>如果没有安装过socket.io和express，打开命令行（windows 为cmd），将路径切换到新建的文件夹下</p>
+<p>windows使用命令：cd  /d  <em>这里是你的文件夹路径</em></p>
+<p>输入：npm install express socket.io —save</p>
+<p>这会在当前文件夹创建一个node_modules作为库目录，创建package.json和package-lock.json来记录这个项目当前的库依赖。</p>
+<p>创建文件index.js作为服务器，并编辑index.js，如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>)<span class="comment">//导入express库</span></span><br><span class="line"><span class="keyword">const</span> app = express()<span class="comment">//创建express app</span></span><br><span class="line"><span class="keyword">const</span> server = <span class="built_in">require</span>(<span class="string">&#x27;http&#x27;</span>).Server(app)<span class="comment">//用Nodejs自带的http库服务器</span></span><br><span class="line"><span class="keyword">const</span> io = <span class="built_in">require</span>(<span class="string">&#x27;socket.io&#x27;</span>)(server)<span class="comment">//给服务器加上websocket功能</span></span><br><span class="line">app.use(express.static( __dirname ))<span class="comment">//服务器开始服务当前index.js所在文件夹下的所有文件</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">io.on(<span class="string">&#x27;connection&#x27;</span>, <span class="function">(<span class="params">socket</span>) =&gt;</span> &#123;<span class="comment">//当一个用户使用ws（websocket）连接到服务器时</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;有一个用户连接了！&#x27;</span>) <span class="comment">//服务器提醒</span></span><br><span class="line"></span><br><span class="line"> socket.on(<span class="string">&#x27;message&#x27;</span>, <span class="function">(<span class="params">evt</span>) =&gt;</span> &#123;<span class="comment">//当用户通过ws发送消息时</span></span><br><span class="line">    <span class="built_in">console</span>.log(evt)            <span class="comment">//在服务器上显示消息内容 </span></span><br><span class="line">   socket.broadcast.emit(<span class="string">&#x27;message&#x27;</span>, evt)<span class="comment">//将这个消息发送给所有连接的用户</span></span><br><span class="line"></span><br><span class="line">  &#125;)</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">io.on(<span class="string">&#x27;disconnect&#x27;</span>, <span class="function">(<span class="params">evt</span>) =&gt;</span> &#123;<span class="comment">//当某个用户的ws连接断开时</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;有用户断开了&#x27;</span>)&#125;) <span class="comment">//服务器提醒</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">server.listen(<span class="number">3000</span>) <span class="comment">//服务器开始运行在本机3000端口</span></span><br></pre></td></tr></table></figure>
+<p>这时你在网页里打开  <a href="localhost:3000">localhost:3000</a>, 你会看到如下图：</p>
+<p><img src="/2021/04/06/websocket%E5%8D%8F%E8%AE%AE%E5%92%8Cwebrtc%E5%8D%8F%E8%AE%AE/image-20210418153113561.png" alt></p>
+<p>这是因为index.js会服务同目录下的所有文件，但出于安全考虑，http服务器不会显示文件夹下的文件，防止蓄意不良的人探查服务器的结构。我们必须输入文件路径，而不是文件夹路径。</p>
+<p>这时我们新建一个文件名为 1.txt，输入 localhost:3000/1.txt,就能访问到1.txt里的内容</p>
+<h4 id="我的思路"><a href="#我的思路" class="headerlink" title="我的思路"></a>我的思路</h4><p>【1】只需每个用户在编辑文档的时候都发送ws命令给服务器，我们就可以在后端协调多个用户的操作了</p>
+<p>【2】对于较小的文档，每个用户编辑后，都发送全文给所有在线用户，（我们就使用这个办法）</p>
+<h3 id="app前端"><a href="#app前端" class="headerlink" title="app前端"></a>app前端</h3><p>多人同时对文本的处理，只需要很简单的html就能实现</p>
+<p>html是浏览器使用最广泛的文件类型，浏览器通过运行html文件内的javascript，在用户与html交互时可以给予响应，还可以发送请求到远程服务器。</p>
+<p>我们用简单的html语言写一个网页。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 首先，html文件以 &lt;html&gt; 开始 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span> </span><br><span class="line">    <span class="comment">&lt;!-- html网页的标题 在&lt;title&gt;和&lt;/title&gt;之间 --&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>这个网页支持实时合作编辑<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- html网页的主体 在&lt;body&gt;和&lt;/body&gt;中间  --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- h3代表三级标题 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h3</span>&gt;</span>这个网页支持实时合作编辑<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- div代表一个块 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- textarea代表文本框 这里设置文本框背景色为深绿色 字体为白色 提示为：在这里输入你想要编辑的文本... --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">textarea</span> <span class="attr">rows</span>=<span class="string">&quot;30&quot;</span> <span class="attr">cols</span>=<span class="string">&quot;50&quot;</span> <span class="attr">id</span>=<span class="string">&quot;editor&quot;</span> <span class="attr">style</span>=<span class="string">&quot;background-color:darkgreen;color:#fff&quot;</span>  <span class="attr">placeholder</span>=<span class="string">&quot;在这里输入你想要编辑的文本...&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这时我们有了html的各种元素,接下来需要javascript来实现和服务器之间的通信</p>
+<p>首先，当我们需要在浏览器发起一个socket.io请求时，浏览器需要加载客户端的socket.io库 当初使用npm install socket.io时，下载就包含了客户端的库， 或者直接百度搜索<a target="_blank" rel="noopener" href="https://cdn.baomitu.com/socket.io">socket.io客户端CDN</a></p>
+<p>   <code>&lt;script&gt;</code>代表运行javascript代码块 src代表代码块的资源地址 ./代表当前网页的url </p>
+<p>./再加上相对路径就等于要请求的绝对路径url </p>
+<p>其实更推荐使用cdn，因为用户使用cdn，可减少服务器流量负担，当你真正部署服务器时，需要考虑这些</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;../node_modules/socket.io-client/dist/socket.io.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 或者使用  &lt;script src=&quot;这里输入百度得到的cdn地址&quot;&gt;&lt;/script&gt;  --&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>接下来有了库，再新建一个<code>&lt;script&gt;</code>标签，开始写代码实现</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> socket = io(<span class="string">&#x27;http://localhost:3000&#x27;</span>);<span class="comment">//建立ws连接到本地服务器</span></span></span><br><span class="line"></span><br><span class="line"><span class="javascript"><span class="keyword">const</span> editor = <span class="built_in">document</span>.getElementById(<span class="string">&quot;editor&quot;</span>)<span class="comment">//editor是先前html里的文本框元素</span></span></span><br><span class="line"><span class="javascript">editor.addEventListener(<span class="string">&quot;keyup&quot;</span>, <span class="function">(<span class="params">evt</span>) =&gt;</span> &#123;     <span class="comment">//当文本框检测到一次键盘按键时</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">const</span> text = editor.value                   <span class="comment">//获取文本框当前内容，将内容写入变量text</span></span></span><br><span class="line"><span class="javascript">    socket.send(text)                           <span class="comment">//将text发送给服务器</span></span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="javascript">socket.on(<span class="string">&#x27;message&#x27;</span>, <span class="function">(<span class="params">data</span>) =&gt;</span> &#123;                <span class="comment">//当收到服务器消息时</span></span></span><br><span class="line"><span class="javascript">    editor.value = data                         <span class="comment">//文本框内容更新为服务器的消息内容</span></span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span>                                       //javascript代码块结束</span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span>                                         //html结束</span><br></pre></td></tr></table></figure>
+<p>视频演示</p>
+<p><img src="/2021/04/06/websocket%E5%8D%8F%E8%AE%AE%E5%92%8Cwebrtc%E5%8D%8F%E8%AE%AE/output-1618739874818.gif" alt></p>
+<h2 id="WebRTC协议"><a href="#WebRTC协议" class="headerlink" title="WebRTC协议"></a>WebRTC协议</h2><p>视频演示</p>
+<iframe src="//player.bilibili.com/player.html?aid=544993144&bvid=BV1Wi4y1N74y&cid=317771332&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://georgeguoxv.gitee.io/2021/04/03/%E8%B4%B9%E9%A9%AC%E5%B0%8F%E5%AE%9A%E7%90%86%E5%92%8C%E6%AC%A7%E6%8B%89%E5%AE%9A%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/favicon-32x32.png">
+      <meta itemprop="name" content="George Guo">
+      <meta itemprop="description" content="本博客为纯静态网站">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="George的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/03/%E8%B4%B9%E9%A9%AC%E5%B0%8F%E5%AE%9A%E7%90%86%E5%92%8C%E6%AC%A7%E6%8B%89%E5%AE%9A%E7%90%86/" class="post-title-link" itemprop="url">费马小定理和欧拉定理</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-04-03 11:30:30" itemprop="dateCreated datePublished" datetime="2021-04-03T11:30:30+08:00">2021-04-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-10 12:31:43" itemprop="dateModified" datetime="2021-05-10T12:31:43+08:00">2021-05-10</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="取模的定义"><a href="#取模的定义" class="headerlink" title="取模的定义"></a>取模的定义</h1><p><strong>模除</strong>（又稱<strong>模数</strong>、<strong>取模操作</strong>、<strong>取模運算</strong>等，英語：modulo 有时也称作 modulus）得到的是一个数除以另一个数的余数。</p>
+<p>给定两个正整数：<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/被除數">被除数</a> <em>a</em> 和<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/除數">除数</a> <em>n</em>，<em>a</em> modulo <em>n</em> (缩写为 <em>a</em> mod <em>n</em>)得到的是使用<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/欧几里德除法">欧几里德除法</a>时 <em>a</em>/<em>n</em> 的余数。</p>
+<h2 id="取模的性质"><a href="#取模的性质" class="headerlink" title="取模的性质"></a>取模的性质</h2><p>对于正整数a,k,m,n，如果有 a = m (mod n),那么a <em> k = m </em> k (mod n)</p>
+<h3 id="费马小定理的证明"><a href="#费马小定理的证明" class="headerlink" title="费马小定理的证明"></a>费马小定理的证明</h3><p>如果p是一个素数（质数），a是一个正整数且与p的最大公因数为1，那么对于数列：</p>
+<p>a, 2a, 3a, 4a, 5a, (p-1)a</p>
+<p>将每个项都除去p得出余数, 得出的结果是一个包含正整数1到p-1的数列，且每个整数都只出现一次</p>
+<p>举例,a=8,p=11,可得：</p>
+<p>8，  0*11+    8<br>16，1*11+    5<br>24，2*11+    2<br>32，2*11+    10<br>40，3*11+    7<br>48，4*11+    4<br>56，5*11+    1<br>64，5*11+    9<br>72，6*11+    6<br>80,   7*11+    3</p>
+<p>可以看到，余数是打乱后的数列 1，2，3，4，5，6，7，8，9，10</p>
+<p>将数列逐项相称，a <em>2a </em>3a <em>4a </em>5a … *(p-1)a，</p>
+<p>根据乘法的交换律，其结果就等于 1 <em> 2 </em> 3 … * (p-1) （mod p）  </p>
+<p>也就是说 </p>
+<script type="math/tex; mode=display">
+a^{p-1}(p-1)! \equiv (p-1)!(\mod p)</script><p>接着根据取模的性质,两边消去（p-1），可得：</p>
+<script type="math/tex; mode=display">
+a^{p-1} \equiv 1(\mod p)</script><h2 id="视频参考"><a href="#视频参考" class="headerlink" title="视频参考"></a>视频参考</h2><iframe src="//player.bilibili.com/player.html?aid=459976031&bvid=BV1t5411A7cz&cid=319894808&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+<h2 id="未完待续…"><a href="#未完待续…" class="headerlink" title="未完待续…"></a>未完待续…</h2><p>有兴趣的小伙伴可以进入文章页面，在底部评论 &gt;_&lt;</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://georgeguoxv.gitee.io/2021/03/26/%E5%BE%AE%E8%BD%AFsurf%E6%B8%B8%E6%88%8F%E4%BF%AE%E6%94%B9%EF%BC%8Chtml5%E6%B8%B8%E6%88%8F%E9%80%86%E5%90%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/favicon-32x32.png">
+      <meta itemprop="name" content="George Guo">
+      <meta itemprop="description" content="本博客为纯静态网站">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="George的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/03/26/%E5%BE%AE%E8%BD%AFsurf%E6%B8%B8%E6%88%8F%E4%BF%AE%E6%94%B9%EF%BC%8Chtml5%E6%B8%B8%E6%88%8F%E9%80%86%E5%90%91/" class="post-title-link" itemprop="url">微软surf游戏修改，html5游戏逆向</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-03-26 19:53:13" itemprop="dateCreated datePublished" datetime="2021-03-26T19:53:13+08:00">2021-03-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-10 12:31:43" itemprop="dateModified" datetime="2021-05-10T12:31:43+08:00">2021-05-10</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="微软Edge内置有一个小游戏，在浏览器输入edge-surf就能访问"><a href="#微软Edge内置有一个小游戏，在浏览器输入edge-surf就能访问" class="headerlink" title="微软Edge内置有一个小游戏，在浏览器输入edge://surf就能访问"></a>微软Edge内置有一个小游戏，在浏览器输入edge://surf就能访问</h2><p>但是玩起来很费力，怪兽跑的太快了，障碍物有时候也很难躲，我把游戏的game.js源码做了修改，可以实现无敌<br>But！！！ 还是不够完美，一个人玩实在是太孤独了，我把刷新路人的间隔调到了很低，而且把路人刷新的位置从屏幕之外改到了屏幕中间，哈哈</p>
+<h2 id="修改成在线游戏"><a href="#修改成在线游戏" class="headerlink" title="修改成在线游戏"></a>修改成在线游戏</h2><p>如果你打开浏览器的devtool查看一下源码，你会发现我修改的地方做的中文注释，你也可以试着修改<br>我准备进一步把这个游戏优化成在线游戏，所以我引入了peerjs,socket.io这两个库，我想如果有一个websocket的服务器，那么每个玩家都可以发送ws message到服务器，服务器再转发给每一个在线的玩家，这样就可以实现多人。如果你看到报错的peerjs，那是其实我给每个访问网站的用户分配一个peer id，但是由于服务器端口有限，3001端口的peerjs服务器我无法部署。</p>
+<h2 id="修改时遇到的问题"><a href="#修改时遇到的问题" class="headerlink" title="修改时遇到的问题"></a>修改时遇到的问题</h2><p>我仔细研究了代码，从debug断点开始，慢慢的熟悉了代码。 经过我google搜索作者的名字加上EdgeSurf,我发现了原作者的一篇采访，作者说是代码是使用原生的js写的，然后使用webpack打包成game.js，于是我是用webpack-unpack把game.js反编译成  <a target="_blank" rel="noopener" href="https://github.com/George-Guo-tech/How-to-change-the-Edge-Surf-game/blob/master/%E5%BC%80%E5%8C%85game.js%E5%90%8E%E7%9A%84%E6%96%87%E4%BB%B6">开包game.js后的文件</a> ，可以看到这是一个json文件，于是我又写了一个脚本<a target="_blank" rel="noopener" href="https://github.com/George-Guo-tech/How-to-change-the-Edge-Surf-game/blob/master/重新组合.js">重新组合.js</a>来把这个json文件转写成一个个js文件， 你看到的0.js和28.js每一个都是一个COMMONJS模块，其中最重要的起始模块是21.js，这我们可以从game.js开头的源码中看出来 <a target="_blank" rel="noopener" href="https://user-images.githubusercontent.com/64751182/112633436-521e4c80-8e74-11eb-9827-53c859eec058.png"><img src="https://user-images.githubusercontent.com/64751182/112633436-521e4c80-8e74-11eb-9827-53c859eec058.png" alt="image"></a></p>
+<p>为了验证我的猜想，我把这个0到28的模块使用browserfy重新组合，然后用组合后的js代替了game.js，游戏果然能够运行<br>很遗憾的是原作者使用webpack压缩后使源码变得很难阅读，有些变量名都被压缩成了一个字母，这给逆向开发带来很大难度</p>
+<h2 id="有兴趣的小伙伴可以fork这个项目，我们一起魔改这个html5游戏。"><a href="#有兴趣的小伙伴可以fork这个项目，我们一起魔改这个html5游戏。" class="headerlink" title="有兴趣的小伙伴可以fork这个项目，我们一起魔改这个html5游戏。"></a>有兴趣的小伙伴可以fork这个项目，我们一起魔改这个html5游戏。</h2><p>这是github仓库<a target="_blank" rel="noopener" href="https://github.com/George-Guo-tech/How-to-change-the-Edge-Surf-game">https://github.com/George-Guo-tech/How-to-change-the-Edge-Surf-game</a></p>
+<p>你们可以克隆到本地或者云服务器上自己试试  </p>
+<p> <a target="_blank" rel="noopener" href="http://www.bibibigeorge.site/surf/index.html">在这里试玩</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://georgeguoxv.gitee.io/2021/03/25/cpu%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%EF%BC%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/favicon-32x32.png">
+      <meta itemprop="name" content="George Guo">
+      <meta itemprop="description" content="本博客为纯静态网站">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="George的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/03/25/cpu%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%EF%BC%9F/" class="post-title-link" itemprop="url">cpu如何工作？</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-03-25 11:07:31" itemprop="dateCreated datePublished" datetime="2021-03-25T11:07:31+08:00">2021-03-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-10 12:31:43" itemprop="dateModified" datetime="2021-05-10T12:31:43+08:00">2021-05-10</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="引言：逻辑门电路"><a href="#引言：逻辑门电路" class="headerlink" title="引言：逻辑门电路"></a>引言：逻辑门电路</h1><h2 id="继电器"><a href="#继电器" class="headerlink" title="继电器"></a>继电器</h2><p>我们在初中就学习过电磁感应，线圈通电会产生磁场，利用这个磁场再去控制一个电路的开关，这就是最早的继电器</p>
+<p><img src="/2021/03/25/cpu%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%EF%BC%9F/1616644633114.png" alt="继电器"></p>
+<p>许多继电器链接起来，就构成了有逻辑思维的电路：以下为一个与门（And Gate）</p>
+<p><img src="/2021/03/25/cpu%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%EF%BC%9F/image-20210325120531945.png" alt></p>
+<p>只有当前两个继电器都通电时，灯泡才能点亮</p>
+<p>以下是几种常见逻辑门：</p>
+<p>或门：<img src="/2021/03/25/cpu%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%EF%BC%9F/image-20210325124715228.png" alt="image-20210325124715228"></p>
+<p>非门（反向器）：<img src="/2021/03/25/cpu%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%EF%BC%9F/image-20210325124809134.png" alt="image-20210325124809134"></p>
+<p>或非门：<img src="/2021/03/25/cpu%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%EF%BC%9F/image-20210325124930571.png" alt="image-20210325124930571"></p>
+<p>以下为常见逻辑门的符号表示：</p>
+<p><img src="https://mianbaoban-assets.oss-cn-shenzhen.aliyuncs.com/2021/1/iEjEFv.png" width="200" height="400"></p>
+<h2 id="振荡器（时钟）"><a href="#振荡器（时钟）" class="headerlink" title="振荡器（时钟）"></a>振荡器（时钟）</h2><p><img align="left" width="250" height="250" src="/2021/03/25/cpu%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%EF%BC%9F/image-20210325121220542.png"><img align="left" width="250" height="250" src="/2021/03/25/cpu%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%EF%BC%9F/image-20210325121235648.png"></p>
+<p>当接通时，磁力使开关断开，断开后失去磁力，就会再次接通电路。时钟就会不断地开关。</p>
+<h2 id="锁存器"><a href="#锁存器" class="headerlink" title="锁存器"></a>锁存器</h2><p>这是由两个或非门构造的触发器，称为 R - S（或 R e s e t - S e t，复位/置位）触发器</p>
+<p><img src="/2021/03/25/cpu%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%EF%BC%9F/image-20210325124413190.png" alt="image-20210325124413190"></p>
+<p>闭合上边的置位开关</p>
+<p><img src="/2021/03/25/cpu%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%EF%BC%9F/image-20210325124435107.png" alt="image-20210325124435107"></p>
+<p>这是即使你再断开开关，灯泡仍然会亮着</p>
+<p><img src="/2021/03/25/cpu%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%EF%BC%9F/image-20210325153936798.png" alt="image-20210325153936798"></p>
+<p>这时闭合下边的复位开关，灯泡熄灭</p>
+<p><img src="/2021/03/25/cpu%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%EF%BC%9F/image-20210325155210783.png" alt="image-20210325155210783"></p>
+<p>触发器的电路可以简化成：<img src="/2021/03/25/cpu%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%EF%BC%9F/image-20210325155525804.png" alt="image-20210325155525804"></p>
+<p>接下来我们改进这个触发器,我们加上输出Q为零的情况</p>
+<script type="math/tex; mode=display">
+\overline{Q}</script><p><img src="/2021/03/25/cpu%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%EF%BC%9F/image-20210325155741925.png" alt="image-20210325155741925"></p>
+<p>只要保持位为0，置位信号和复位信号都不会对电路输出产生影响</p>
+<p><img src="/2021/03/25/cpu%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%EF%BC%9F/image-20210325163116367.png" alt="image-20210325163116367"></p>
+<p>这就是一个电平触发的D型锁存器了，D（Data）表示数据端输入。所谓电平触发是指当 保持位输入为某一特定电平时，触发器才对数据端的输入值进行保存</p>
+<p>(更高级的触发器！)两个R-S触发器相连接，可以组成 边沿触发的D型触发器</p>
+<p><img src="/2021/03/25/cpu%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%EF%BC%9F/image-20210325164855645.png" alt="image-20210325164855645"></p>
+<p><img src="/2021/03/25/cpu%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%EF%BC%9F/image-20210325165041642.png" alt="image-20210325165041642"></p>
+<h1 id="cpu"><a href="#cpu" class="headerlink" title="cpu"></a>cpu</h1><p>2.3Ghz的cpu就是指每秒能够进行23亿次运算的cpu。也就是时钟每秒变化23亿次。</p>
+<p>cpu从内存条（RAM）上的0地址开始运行，每次时钟跳动，就往下跳一个地址。</p>
+<p>cpu运行的视频介绍可以参考：</p>
+<iframe src="//player.bilibili.com/player.html?aid=714780405&bvid=BV1LX4y1G7sQ&cid=315113451&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 100%; height: 500px; max-width: 100%；align:center; padding:20px 0;"> 
+</iframe>
+<iframe src="//player.bilibili.com/player.html?aid=417304618&bvid=BV1eV411e7k3&cid=316109728&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://georgeguoxv.gitee.io/2021/03/23/%E5%BB%BA%E8%AE%BE%E8%87%AA%E5%B7%B1%E7%9A%84ss%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%8C%E5%8C%BF%E5%90%8D%E4%B8%8A%E7%BD%91-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/favicon-32x32.png">
+      <meta itemprop="name" content="George Guo">
+      <meta itemprop="description" content="本博客为纯静态网站">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="George的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/03/23/%E5%BB%BA%E8%AE%BE%E8%87%AA%E5%B7%B1%E7%9A%84ss%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%8C%E5%8C%BF%E5%90%8D%E4%B8%8A%E7%BD%91-1/" class="post-title-link" itemprop="url">建设自己的ss代理服务器，匿名上网</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-03-23 14:35:20" itemprop="dateCreated datePublished" datetime="2021-03-23T14:35:20+08:00">2021-03-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-10 12:31:43" itemprop="dateModified" datetime="2021-05-10T12:31:43+08:00">2021-05-10</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>实现匿名上网，首先不能使用自己真实的ip，即使是动态ip也能够暴露一台电脑的大致位置。  </p>
+<p>同时，使用大陆外的代理服务器也能绕开GFW（防火长城）的DNS污染和ip封锁。这样就能访问google了。  </p>
+<h1 id="部署服务器"><a href="#部署服务器" class="headerlink" title="部署服务器"></a>部署服务器</h1><blockquote>
+<p>代理服务器如何工作？</p>
+</blockquote>
+<p>代理服务器代替你向服务器发出请求，并将服务器的回复转发给你。开启全局代理后，你所有HTTP，TCP（socks4协议支持tcp）和UDP（socks5协议支持udp）请求包都会交由服务器接管，你发出一个向google.com的TCP请求包，代理服务器收到后，将请求包中原本你的ip替换为服务器ip。</p>
+<h2 id="购买服务器-或者其它，以阿里云香港为例"><a href="#购买服务器-或者其它，以阿里云香港为例" class="headerlink" title="购买服务器(或者其它，以阿里云香港为例)"></a>购买服务器(或者其它，以阿里云香港为例)</h2><p>阿里云服务器可以支持按流量付费，cpu越好，带宽越高，服务器价格越贵。香港服务器也有许多，每个服务器的位置不同，和你家的ip之间的延迟也不同，可以通过按流量付费多尝试几个服务器，选择低较低延迟的。同样不同的云服务提供商（腾讯云，华为云等）与国内移动，联通，电信的链接有好有坏，经过我用cloudping实测，阿里云香港的服务器与国内移动宽带的衔接较好，延迟较低。  </p>
+<p>如果需要实现国外ip低延迟的访问，也可以直接选择国外的谷歌云，digitalocean等云服务器。（延迟只会对网络游戏，直播，视频聊天这种实时网络造成影响，对于观看youtube视频，查找google，下载文件不会造成影响。）  </p>
+<h2 id="在服务器上搭建ss服务器"><a href="#在服务器上搭建ss服务器" class="headerlink" title="在服务器上搭建ss服务器"></a>在服务器上搭建ss服务器</h2><blockquote>
+<p>为什么需要ss？</p>
+</blockquote>
+<p>ss是shadowsocks 的缩写，ss是一种基于socks5协议的加密方式。</p>
+<p>为了保证你和代理服务器之间通讯的加密性，在你的电脑上安装ss用户端后，ss用户端会将你和代理服务器之间的交流加密，从而使防火墙无法检测到敏感字段和国外的ip或域名。</p>
+<p>在Ubuntu或CentOs上搭建ss服务器</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>Debian / Ubuntu:</p>
+<blockquote>
+<p>apt-get install python-pip pip install shadowsocks</p>
+</blockquote>
+<p>CentOS:</p>
+<blockquote>
+<p>yum install python-setuptools &amp;&amp; easy_install pip pip install shadowsocks  </p>
+</blockquote>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><blockquote>
+<p>ssserver -p 443 -k password -m rc4-md5</p>
+</blockquote>
+<p>如果要后台运行：</p>
+<blockquote>
+<p>sudo ssserver -p 443 -k password -m rc4-md5 —user nobody -d start</p>
+</blockquote>
+<p>如果要停止：</p>
+<blockquote>
+<p>sudo ssserver -d stop  </p>
+</blockquote>
+<p>这里有参考视频：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV12f4y1B7M7?from=search&amp;seid=10367338852122070800">https://www.bilibili.com/video/BV12f4y1B7M7?from=search&amp;seid=10367338852122070800</a></p>
+<h2 id="安装ss客户端"><a href="#安装ss客户端" class="headerlink" title="安装ss客户端"></a>安装ss客户端</h2><p>参考视频：<a target="_blank" rel="noopener" href="https://tlanyan.me/shadowsock-clients/&amp;sa=U&amp;ved=2ahUKEwjq4ICun8bvAhU4w4sBHaMJCLYQFjAAegQIBhAB&amp;usg=AOvVaw2gAk6djzKFQo6ig3hMWKiT">https://tlanyan.me/shadowsock-clients/&amp;sa=U&amp;ved=2ahUKEwjq4ICun8bvAhU4w4sBHaMJCLYQFjAAegQIBhAB&amp;usg=AOvVaw2gAk6djzKFQo6ig3hMWKiT</a></p>
+<p><strong>当然，如果你不在乎安全因素，想白嫖代理服务器，你也可以去找网络上的免费机场</strong></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://georgeguoxv.gitee.io/2021/03/20/%E7%AC%94%E8%AE%B0%E6%9C%AC%E6%90%AD%E5%BB%BA%E7%BD%91%E7%AB%99/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/favicon-32x32.png">
+      <meta itemprop="name" content="George Guo">
+      <meta itemprop="description" content="本博客为纯静态网站">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="George的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/03/20/%E7%AC%94%E8%AE%B0%E6%9C%AC%E6%90%AD%E5%BB%BA%E7%BD%91%E7%AB%99/" class="post-title-link" itemprop="url">如何在自己笔记本上搭建网站</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-03-20 14:20:56" itemprop="dateCreated datePublished" datetime="2021-03-20T14:20:56+08:00">2021-03-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-10 12:31:43" itemprop="dateModified" datetime="2021-05-10T12:31:43+08:00">2021-05-10</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>在自己的笔记本上部署个人网站，随时随地分享自己学习到的新知识，发现的新玩意</p>
+<h2 id="你需要："><a href="#你需要：" class="headerlink" title="你需要："></a><strong>你需要：</strong></h2><p>  一个http服务器：Python 里的simple-http-server和Flask；NodeJs里的Express 都是简单的http服务器；Tomcat；nginx；这种比较复杂，适合大型网站的服务器<br>  一个html网页文件：html是绝大多数网页所用的语言，你可以右键网页背景，查看网页原始码来查看一个网页的全部成分；<br>  一个公网ip或域名：因为要想别人能够访问你的网站，你的笔记本必须获得一个公网ip，或者域名<br>    获得公网ip的方法：（1） 与互联网运营商联系，申请将家里的光猫改为桥接模式，然后通过路由器拨号（如果没有使用路由器，使用笔记本拨号）获得一个在电脑关机之前都不会改变的公网ip；这时其他用户就可以通过公网，直接访问你的路由器的端口了，只需要路由器再将端口转发给笔记本的端口，用户就能访问你的笔记本上共享的文件了。（2） 如果你能够获得光猫管理员权限；也可自己修改光猫为桥接模式。<br>                      <strong>注意</strong>：移动不提供公网ipv4拨号，但可以使用ipv6；在有些公网ip紧张的地区，联通，电信的公网ipv4拨号也不会无偿提供。</p>
+<p>​    获得域名的方法：使用DDNS（动态域名解析服务），如花生壳，阿里云等动态域名解析服务，将你目前的ip地址对应成一个域名，写入到一个或多个DNS服务器中，用户访问你的域名时会连接到这个DNS服务器，这个DNS服务器将你的所在的公网ip，以及所在公网ip里的子网ip发送给用户<br>  端口转发（内网穿透）：将路由器某个端口对应到笔记本某个端口</p>
+<h2 id="参考链接："><a href="#参考链接：" class="headerlink" title="参考链接："></a>参考链接：</h2><p>  <a target="_blank" rel="noopener" href="https://post.smzdm.com/p/adwr4eed/">https://post.smzdm.com/p/adwr4eed/</a> 光猫改桥接</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+
+
+
+          </div>
+          
+  
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=230 src="//music.163.com/outchain/player?type=0&id=401771073&auto=1&height=430"></iframe>
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="George Guo"
+      src="/images/favicon-32x32.png">
+  <p class="site-author-name" itemprop="name">George Guo</p>
+  <div class="site-description" itemprop="description">本博客为纯静态网站</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/George-Guo-tech" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;George-Guo-tech" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/GeorgeGuoXv" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;GeorgeGuoXv" rel="noopener" target="_blank"><i class="fa fa-fw fa-custom gitee"></i>Gitee</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://m.bilibili.com/space/553832852" title="Bilibili → https:&#x2F;&#x2F;m.bilibili.com&#x2F;space&#x2F;553832852" rel="noopener" target="_blank"><i class="fa fa-fw fa-custom bilibili"></i>Bilibili</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/chengciming/wechatPc" title="https:&#x2F;&#x2F;github.com&#x2F;chengciming&#x2F;wechatPc" rel="noopener" target="_blank">微信机器人项目(C++,php,html5)</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/cspinstructor/my-crackmes" title="https:&#x2F;&#x2F;github.com&#x2F;cspinstructor&#x2F;my-crackmes" rel="noopener" target="_blank">C++逆向练习</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+<script src="/live2d/autoload.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/js/sakura.js"></script>
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+  <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script><script src="/js/src/md5.min.js"></script>
+
+<div id="gitalk-container"></div>
+<script>
+
+const gitalk = new Gitalk({
+  clientID: '52d4fe3261227490009f',
+  clientSecret: 'abf5c09c8aeb14f4bcbf49b9fc838aef6ef9bc14',
+  repo: 'George-Guo-tech.github.io',      // The repository of store comments,
+  owner: 'George-Guo-tech',
+  admin: ['George-Guo-tech'],
+  id: md5(location.pathname),      // Ensure uniqueness and length less than 50
+  distractionFreeMode: false  // Facebook-like distraction free mode
+})
+
+gitalk.render('gitalk-container')
+//   var gitment = new Gitment({
+//   id: 'www.bibibigeorge.site',
+//   owner: 'George-Guo-tech',
+//   repo: 'George-Guo-tech.github.io',
+//   oauth: {
+//     client_id: '52d4fe3261227490009f',
+//     client_secret: 'abf5c09c8aeb14f4bcbf49b9fc838aef6ef9bc14',
+//   },
+//   // ...
+//   // For more available options, check out the documentation below
+// })
+//   // gitment.render('container')
+//   gitment.render(document.getElementById('comments'))
+
+
+jQuery(document).ready(function() {
+    function c() {
+        /* 排除首页（记得自行修改下首页地址） */
+	if (location.href != "https://bibibigeorge.site") { document.title = document[a] ? "(つェ⊂)誒呀→《" + d + "》" : "(*´∇｀*) 咦好了→《" + d + "》" }
+    }
+    var a, b, d = document.title;
+    "undefined" != typeof document.hidden ? (a = "hidden", b = "visibilitychange") : "undefined" != typeof document.mozHidden ? (a = "mozHidden", b = "mozvisibilitychange") : "undefined" != typeof document.webkitHidden && (a = "webkitHidden", b = "webkitvisibilitychange");
+    "undefined" == typeof document.addEventListener && "undefined" == typeof document[a] || document.addEventListener(b, c, !1)
+});
+</script>
+
+	<script type="text/javascript" src="/js/src/clicklove.js"></script>
+	  <!-- <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script> -->
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">George Guo</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+  <div class="addthis_inline_share_toolbox">
+    <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-6059e3bca1c1bc91" async="async"></script>
+  </div>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<span id="busuanzi_container_site_pv">
+| 本站总访问量<span style="color:#FA8072" id="busuanzi_value_site_pv"></span>次
+</span>
+<span id="busuanzi_container_site_uv">
+| 本站访客数<span style="color:#FA8072" id="busuanzi_value_site_uv"></span>人次
+</span>
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+  
+</body>
+</html>

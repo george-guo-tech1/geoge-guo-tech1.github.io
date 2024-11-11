@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"> 
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"georgeguoxv.gitee.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","Muse | Mist":220,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="微软Edge内置有一个小游戏，在浏览器输入edge:&#x2F;&#x2F;surf就能访问但是玩起来很费力，怪兽跑的太快了，障碍物有时候也很难躲，我把游戏的game.js源码做了修改，可以实现无敌But！！！ 还是不够完美，一个人玩实在是太孤独了，我把刷新路人的间隔调到了很低，而且把路人刷新的位置从屏幕之外改到了屏幕中间，哈哈 修改成在线游戏如果你打开浏览器的devtool查看一下源码，你会发现我修改的地方做的中文">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微软surf游戏修改，html5游戏逆向">
+<meta property="og:url" content="https://georgeguoxv.gitee.io/2021/03/26/%E5%BE%AE%E8%BD%AFsurf%E6%B8%B8%E6%88%8F%E4%BF%AE%E6%94%B9%EF%BC%8Chtml5%E6%B8%B8%E6%88%8F%E9%80%86%E5%90%91/index.html">
+<meta property="og:site_name" content="George的博客">
+<meta property="og:description" content="微软Edge内置有一个小游戏，在浏览器输入edge:&#x2F;&#x2F;surf就能访问但是玩起来很费力，怪兽跑的太快了，障碍物有时候也很难躲，我把游戏的game.js源码做了修改，可以实现无敌But！！！ 还是不够完美，一个人玩实在是太孤独了，我把刷新路人的间隔调到了很低，而且把路人刷新的位置从屏幕之外改到了屏幕中间，哈哈 修改成在线游戏如果你打开浏览器的devtool查看一下源码，你会发现我修改的地方做的中文">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://user-images.githubusercontent.com/64751182/112633436-521e4c80-8e74-11eb-9827-53c859eec058.png">
+<meta property="article:published_time" content="2021-03-26T11:53:13.000Z">
+<meta property="article:modified_time" content="2021-05-10T04:31:43.000Z">
+<meta property="article:author" content="George Guo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/64751182/112633436-521e4c80-8e74-11eb-9827-53c859eec058.png">
+
+<link rel="canonical" href="https://georgeguoxv.gitee.io/2021/03/26/%E5%BE%AE%E8%BD%AFsurf%E6%B8%B8%E6%88%8F%E4%BF%AE%E6%94%B9%EF%BC%8Chtml5%E6%B8%B8%E6%88%8F%E9%80%86%E5%90%91/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>微软surf游戏修改，html5游戏逆向 | George的博客</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-K1BDW9XHBV"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-K1BDW9XHBV');
+      }
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?ec3fe06eb0228c5b6ef8635fb259b905";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">George的博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">学习使我快乐</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://georgeguoxv.gitee.io/2021/03/26/%E5%BE%AE%E8%BD%AFsurf%E6%B8%B8%E6%88%8F%E4%BF%AE%E6%94%B9%EF%BC%8Chtml5%E6%B8%B8%E6%88%8F%E9%80%86%E5%90%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/favicon-32x32.png">
+      <meta itemprop="name" content="George Guo">
+      <meta itemprop="description" content="本博客为纯静态网站">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="George的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          微软surf游戏修改，html5游戏逆向
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-03-26 19:53:13" itemprop="dateCreated datePublished" datetime="2021-03-26T19:53:13+08:00">2021-03-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-10 12:31:43" itemprop="dateModified" datetime="2021-05-10T12:31:43+08:00">2021-05-10</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="微软Edge内置有一个小游戏，在浏览器输入edge-surf就能访问"><a href="#微软Edge内置有一个小游戏，在浏览器输入edge-surf就能访问" class="headerlink" title="微软Edge内置有一个小游戏，在浏览器输入edge://surf就能访问"></a>微软Edge内置有一个小游戏，在浏览器输入edge://surf就能访问</h2><p>但是玩起来很费力，怪兽跑的太快了，障碍物有时候也很难躲，我把游戏的game.js源码做了修改，可以实现无敌<br>But！！！ 还是不够完美，一个人玩实在是太孤独了，我把刷新路人的间隔调到了很低，而且把路人刷新的位置从屏幕之外改到了屏幕中间，哈哈</p>
+<h2 id="修改成在线游戏"><a href="#修改成在线游戏" class="headerlink" title="修改成在线游戏"></a>修改成在线游戏</h2><p>如果你打开浏览器的devtool查看一下源码，你会发现我修改的地方做的中文注释，你也可以试着修改<br>我准备进一步把这个游戏优化成在线游戏，所以我引入了peerjs,socket.io这两个库，我想如果有一个websocket的服务器，那么每个玩家都可以发送ws message到服务器，服务器再转发给每一个在线的玩家，这样就可以实现多人。如果你看到报错的peerjs，那是其实我给每个访问网站的用户分配一个peer id，但是由于服务器端口有限，3001端口的peerjs服务器我无法部署。</p>
+<h2 id="修改时遇到的问题"><a href="#修改时遇到的问题" class="headerlink" title="修改时遇到的问题"></a>修改时遇到的问题</h2><p>我仔细研究了代码，从debug断点开始，慢慢的熟悉了代码。 经过我google搜索作者的名字加上EdgeSurf,我发现了原作者的一篇采访，作者说是代码是使用原生的js写的，然后使用webpack打包成game.js，于是我是用webpack-unpack把game.js反编译成  <a target="_blank" rel="noopener" href="https://github.com/George-Guo-tech/How-to-change-the-Edge-Surf-game/blob/master/%E5%BC%80%E5%8C%85game.js%E5%90%8E%E7%9A%84%E6%96%87%E4%BB%B6">开包game.js后的文件</a> ，可以看到这是一个json文件，于是我又写了一个脚本<a target="_blank" rel="noopener" href="https://github.com/George-Guo-tech/How-to-change-the-Edge-Surf-game/blob/master/重新组合.js">重新组合.js</a>来把这个json文件转写成一个个js文件， 你看到的0.js和28.js每一个都是一个COMMONJS模块，其中最重要的起始模块是21.js，这我们可以从game.js开头的源码中看出来 <a target="_blank" rel="noopener" href="https://user-images.githubusercontent.com/64751182/112633436-521e4c80-8e74-11eb-9827-53c859eec058.png"><img src="https://user-images.githubusercontent.com/64751182/112633436-521e4c80-8e74-11eb-9827-53c859eec058.png" alt="image"></a></p>
+<p>为了验证我的猜想，我把这个0到28的模块使用browserfy重新组合，然后用组合后的js代替了game.js，游戏果然能够运行<br>很遗憾的是原作者使用webpack压缩后使源码变得很难阅读，有些变量名都被压缩成了一个字母，这给逆向开发带来很大难度</p>
+<h2 id="有兴趣的小伙伴可以fork这个项目，我们一起魔改这个html5游戏。"><a href="#有兴趣的小伙伴可以fork这个项目，我们一起魔改这个html5游戏。" class="headerlink" title="有兴趣的小伙伴可以fork这个项目，我们一起魔改这个html5游戏。"></a>有兴趣的小伙伴可以fork这个项目，我们一起魔改这个html5游戏。</h2><p>这是github仓库<a target="_blank" rel="noopener" href="https://github.com/George-Guo-tech/How-to-change-the-Edge-Surf-game">https://github.com/George-Guo-tech/How-to-change-the-Edge-Surf-game</a></p>
+<p>你们可以克隆到本地或者云服务器上自己试试  </p>
+<p> <a target="_blank" rel="noopener" href="http://www.bibibigeorge.site/surf/index.html">在这里试玩</a></p>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/%E5%BE%AE%E4%BF%A1.png" alt="George Guo 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/%E6%94%AF%E4%BB%98%E5%AE%9D.png" alt="George Guo 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/03/25/cpu%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%EF%BC%9F/" rel="prev" title="cpu如何工作？">
+      <i class="fa fa-chevron-left"></i> cpu如何工作？
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/04/03/%E8%B4%B9%E9%A9%AC%E5%B0%8F%E5%AE%9A%E7%90%86%E5%92%8C%E6%AC%A7%E6%8B%89%E5%AE%9A%E7%90%86/" rel="next" title="费马小定理和欧拉定理">
+      费马小定理和欧拉定理 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+       
+       <div id="gitment-container"></div>
+       
+    
+  </div>
+
+  
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=230 src="//music.163.com/outchain/player?type=0&id=401771073&auto=1&height=430"></iframe>
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%AE%E8%BD%AFEdge%E5%86%85%E7%BD%AE%E6%9C%89%E4%B8%80%E4%B8%AA%E5%B0%8F%E6%B8%B8%E6%88%8F%EF%BC%8C%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E8%BE%93%E5%85%A5edge-surf%E5%B0%B1%E8%83%BD%E8%AE%BF%E9%97%AE"><span class="nav-number">1.</span> <span class="nav-text">微软Edge内置有一个小游戏，在浏览器输入edge:&#x2F;&#x2F;surf就能访问</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E6%88%90%E5%9C%A8%E7%BA%BF%E6%B8%B8%E6%88%8F"><span class="nav-number">2.</span> <span class="nav-text">修改成在线游戏</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">3.</span> <span class="nav-text">修改时遇到的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%89%E5%85%B4%E8%B6%A3%E7%9A%84%E5%B0%8F%E4%BC%99%E4%BC%B4%E5%8F%AF%E4%BB%A5fork%E8%BF%99%E4%B8%AA%E9%A1%B9%E7%9B%AE%EF%BC%8C%E6%88%91%E4%BB%AC%E4%B8%80%E8%B5%B7%E9%AD%94%E6%94%B9%E8%BF%99%E4%B8%AAhtml5%E6%B8%B8%E6%88%8F%E3%80%82"><span class="nav-number">4.</span> <span class="nav-text">有兴趣的小伙伴可以fork这个项目，我们一起魔改这个html5游戏。</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="George Guo"
+      src="/images/favicon-32x32.png">
+  <p class="site-author-name" itemprop="name">George Guo</p>
+  <div class="site-description" itemprop="description">本博客为纯静态网站</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/George-Guo-tech" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;George-Guo-tech" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/GeorgeGuoXv" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;GeorgeGuoXv" rel="noopener" target="_blank"><i class="fa fa-fw fa-custom gitee"></i>Gitee</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://m.bilibili.com/space/553832852" title="Bilibili → https:&#x2F;&#x2F;m.bilibili.com&#x2F;space&#x2F;553832852" rel="noopener" target="_blank"><i class="fa fa-fw fa-custom bilibili"></i>Bilibili</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/chengciming/wechatPc" title="https:&#x2F;&#x2F;github.com&#x2F;chengciming&#x2F;wechatPc" rel="noopener" target="_blank">微信机器人项目(C++,php,html5)</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/cspinstructor/my-crackmes" title="https:&#x2F;&#x2F;github.com&#x2F;cspinstructor&#x2F;my-crackmes" rel="noopener" target="_blank">C++逆向练习</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+<script src="/live2d/autoload.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/js/sakura.js"></script>
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+  <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script><script src="/js/src/md5.min.js"></script>
+
+<div id="gitalk-container"></div>
+<script>
+
+const gitalk = new Gitalk({
+  clientID: '52d4fe3261227490009f',
+  clientSecret: 'abf5c09c8aeb14f4bcbf49b9fc838aef6ef9bc14',
+  repo: 'George-Guo-tech.github.io',      // The repository of store comments,
+  owner: 'George-Guo-tech',
+  admin: ['George-Guo-tech'],
+  id: md5(location.pathname),      // Ensure uniqueness and length less than 50
+  distractionFreeMode: false  // Facebook-like distraction free mode
+})
+
+gitalk.render('gitalk-container')
+//   var gitment = new Gitment({
+//   id: 'www.bibibigeorge.site',
+//   owner: 'George-Guo-tech',
+//   repo: 'George-Guo-tech.github.io',
+//   oauth: {
+//     client_id: '52d4fe3261227490009f',
+//     client_secret: 'abf5c09c8aeb14f4bcbf49b9fc838aef6ef9bc14',
+//   },
+//   // ...
+//   // For more available options, check out the documentation below
+// })
+//   // gitment.render('container')
+//   gitment.render(document.getElementById('comments'))
+
+
+jQuery(document).ready(function() {
+    function c() {
+        /* 排除首页（记得自行修改下首页地址） */
+	if (location.href != "https://bibibigeorge.site") { document.title = document[a] ? "(つェ⊂)誒呀→《" + d + "》" : "(*´∇｀*) 咦好了→《" + d + "》" }
+    }
+    var a, b, d = document.title;
+    "undefined" != typeof document.hidden ? (a = "hidden", b = "visibilitychange") : "undefined" != typeof document.mozHidden ? (a = "mozHidden", b = "mozvisibilitychange") : "undefined" != typeof document.webkitHidden && (a = "webkitHidden", b = "webkitvisibilitychange");
+    "undefined" == typeof document.addEventListener && "undefined" == typeof document[a] || document.addEventListener(b, c, !1)
+});
+</script>
+
+	<script type="text/javascript" src="/js/src/clicklove.js"></script>
+	  <!-- <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script> -->
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">George Guo</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+  <div class="addthis_inline_share_toolbox">
+    <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-6059e3bca1c1bc91" async="async"></script>
+  </div>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<span id="busuanzi_container_site_pv">
+| 本站总访问量<span style="color:#FA8072" id="busuanzi_value_site_pv"></span>次
+</span>
+<span id="busuanzi_container_site_uv">
+| 本站访客数<span style="color:#FA8072" id="busuanzi_value_site_uv"></span>人次
+</span>
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>
