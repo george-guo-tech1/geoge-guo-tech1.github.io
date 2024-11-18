@@ -22,37 +22,21 @@
     var CONFIG = {"hostname":"georgeguoxv.gitee.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","Muse | Mist":220,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="引言：逻辑门电路继电器我们在初中就学习过电磁感应，线圈通电会产生磁场，利用这个磁场再去控制一个电路的开关，这就是最早的继电器  许多继电器链接起来，就构成了有逻辑思维的电路：以下为一个与门（And Gate）  只有当前两个继电器都通电时，灯泡才能点亮 以下是几种常见逻辑门： 或门： 非门（反向器）： 或非门： 以下为常见逻辑门的符号表示：  振荡器（时钟） 当接通时，磁力使开关断开，断开后失去磁">
+  <meta name="description" content="首先下载git项目的文件使用git clone下载到本地，或者下载zip，这里我解压到wechat文件夹 首先第一步，启动服务端看到这个说明服务端启动成功 第二步启动web端并启动微信这里需要启动接下来的wechatrobot 在web端新开一个后，扫码登录 但是由于当前版本过低，我们要使用ce过版本检测 找到这个地址 WeChatWin.dll+16276C4 先附加到进程 在ce中修改成较新的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="cpu如何工作？">
-<meta property="og:url" content="https://georgeguoxv.gitee.io/2021/03/25/cpu%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%EF%BC%9F/index.html">
+<meta property="og:title" content="搭建微信机器人">
+<meta property="og:url" content="https://georgeguoxv.gitee.io/2024/11/18/%E6%90%AD%E5%BB%BA%E5%BE%AE%E4%BF%A1%E6%9C%BA%E5%99%A8%E4%BA%BA/index.html">
 <meta property="og:site_name" content="George的博客">
-<meta property="og:description" content="引言：逻辑门电路继电器我们在初中就学习过电磁感应，线圈通电会产生磁场，利用这个磁场再去控制一个电路的开关，这就是最早的继电器  许多继电器链接起来，就构成了有逻辑思维的电路：以下为一个与门（And Gate）  只有当前两个继电器都通电时，灯泡才能点亮 以下是几种常见逻辑门： 或门： 非门（反向器）： 或非门： 以下为常见逻辑门的符号表示：  振荡器（时钟） 当接通时，磁力使开关断开，断开后失去磁">
+<meta property="og:description" content="首先下载git项目的文件使用git clone下载到本地，或者下载zip，这里我解压到wechat文件夹 首先第一步，启动服务端看到这个说明服务端启动成功 第二步启动web端并启动微信这里需要启动接下来的wechatrobot 在web端新开一个后，扫码登录 但是由于当前版本过低，我们要使用ce过版本检测 找到这个地址 WeChatWin.dll+16276C4 先附加到进程 在ce中修改成较新的">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://georgeguoxv.gitee.io/2021/03/25/cpu%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%EF%BC%9F/1616644633114.png">
-<meta property="og:image" content="https://georgeguoxv.gitee.io/2021/03/25/cpu%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%EF%BC%9F/image-20210325120531945.png">
-<meta property="og:image" content="https://georgeguoxv.gitee.io/2021/03/25/cpu%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%EF%BC%9F/image-20210325124715228.png">
-<meta property="og:image" content="https://georgeguoxv.gitee.io/2021/03/25/cpu%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%EF%BC%9F/image-20210325124809134.png">
-<meta property="og:image" content="https://georgeguoxv.gitee.io/2021/03/25/cpu%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%EF%BC%9F/image-20210325124930571.png">
-<meta property="og:image" content="https://mianbaoban-assets.oss-cn-shenzhen.aliyuncs.com/2021/1/iEjEFv.png">
-<meta property="og:image" content="https://georgeguoxv.gitee.io/2021/03/25/cpu%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%EF%BC%9F/image-20210325121220542.png">
-<meta property="og:image" content="https://georgeguoxv.gitee.io/2021/03/25/cpu%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%EF%BC%9F/image-20210325121235648.png">
-<meta property="og:image" content="https://georgeguoxv.gitee.io/2021/03/25/cpu%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%EF%BC%9F/image-20210325124413190.png">
-<meta property="og:image" content="https://georgeguoxv.gitee.io/2021/03/25/cpu%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%EF%BC%9F/image-20210325124435107.png">
-<meta property="og:image" content="https://georgeguoxv.gitee.io/2021/03/25/cpu%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%EF%BC%9F/image-20210325153936798.png">
-<meta property="og:image" content="https://georgeguoxv.gitee.io/2021/03/25/cpu%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%EF%BC%9F/image-20210325155210783.png">
-<meta property="og:image" content="https://georgeguoxv.gitee.io/2021/03/25/cpu%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%EF%BC%9F/image-20210325155525804.png">
-<meta property="og:image" content="https://georgeguoxv.gitee.io/2021/03/25/cpu%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%EF%BC%9F/image-20210325155741925.png">
-<meta property="og:image" content="https://georgeguoxv.gitee.io/2021/03/25/cpu%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%EF%BC%9F/image-20210325163116367.png">
-<meta property="og:image" content="https://georgeguoxv.gitee.io/2021/03/25/cpu%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%EF%BC%9F/image-20210325164855645.png">
-<meta property="og:image" content="https://georgeguoxv.gitee.io/2021/03/25/cpu%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%EF%BC%9F/image-20210325165041642.png">
-<meta property="article:published_time" content="2021-03-25T03:07:31.000Z">
-<meta property="article:modified_time" content="2021-05-10T04:31:43.000Z">
+<meta property="og:image" content="https://georgeguoxv.gitee.io/2024/11/18/%E6%90%AD%E5%BB%BA%E5%BE%AE%E4%BF%A1%E6%9C%BA%E5%99%A8%E4%BA%BA/image-20241118153013553.png">
+<meta property="article:published_time" content="2024-11-18T07:09:06.000Z">
+<meta property="article:modified_time" content="2024-11-18T08:39:30.325Z">
 <meta property="article:author" content="George Guo">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://georgeguoxv.gitee.io/2021/03/25/cpu%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%EF%BC%9F/1616644633114.png">
+<meta name="twitter:image" content="https://georgeguoxv.gitee.io/2024/11/18/%E6%90%AD%E5%BB%BA%E5%BE%AE%E4%BF%A1%E6%9C%BA%E5%99%A8%E4%BA%BA/image-20241118153013553.png">
 
-<link rel="canonical" href="https://georgeguoxv.gitee.io/2021/03/25/cpu%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%EF%BC%9F/">
+<link rel="canonical" href="https://georgeguoxv.gitee.io/2024/11/18/%E6%90%AD%E5%BB%BA%E5%BE%AE%E4%BF%A1%E6%9C%BA%E5%99%A8%E4%BA%BA/">
 
 
 <script id="page-configurations">
@@ -65,7 +49,7 @@
   };
 </script>
 
-  <title>cpu如何工作？ | George的博客</title>
+  <title>搭建微信机器人 | George的博客</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-K1BDW9XHBV"></script>
     <script>
@@ -189,7 +173,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://georgeguoxv.gitee.io/2021/03/25/cpu%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%EF%BC%9F/">
+    <link itemprop="mainEntityOfPage" href="https://georgeguoxv.gitee.io/2024/11/18/%E6%90%AD%E5%BB%BA%E5%BE%AE%E4%BF%A1%E6%9C%BA%E5%99%A8%E4%BA%BA/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/favicon-32x32.png">
@@ -202,7 +186,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          cpu如何工作？
+          搭建微信机器人
         </h1>
 
         <div class="post-meta">
@@ -211,16 +195,10 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2021-03-25 11:07:31" itemprop="dateCreated datePublished" datetime="2021-03-25T11:07:31+08:00">2021-03-25</time>
+              <time title="创建时间：2024-11-18 15:09:06 / 修改时间：16:39:30" itemprop="dateCreated datePublished" datetime="2024-11-18T15:09:06+08:00">2024-11-18</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-10 12:31:43" itemprop="dateModified" datetime="2021-05-10T12:31:43+08:00">2021-05-10</time>
-              </span>
 
           
 
@@ -233,43 +211,25 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="引言：逻辑门电路"><a href="#引言：逻辑门电路" class="headerlink" title="引言：逻辑门电路"></a>引言：逻辑门电路</h1><h2 id="继电器"><a href="#继电器" class="headerlink" title="继电器"></a>继电器</h2><p>我们在初中就学习过电磁感应，线圈通电会产生磁场，利用这个磁场再去控制一个电路的开关，这就是最早的继电器</p>
-<p><img src="/2021/03/25/cpu%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%EF%BC%9F/1616644633114.png" alt="继电器"></p>
-<p>许多继电器链接起来，就构成了有逻辑思维的电路：以下为一个与门（And Gate）</p>
-<p><img src="/2021/03/25/cpu%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%EF%BC%9F/image-20210325120531945.png" alt></p>
-<p>只有当前两个继电器都通电时，灯泡才能点亮</p>
-<p>以下是几种常见逻辑门：</p>
-<p>或门：<img src="/2021/03/25/cpu%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%EF%BC%9F/image-20210325124715228.png" alt="image-20210325124715228"></p>
-<p>非门（反向器）：<img src="/2021/03/25/cpu%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%EF%BC%9F/image-20210325124809134.png" alt="image-20210325124809134"></p>
-<p>或非门：<img src="/2021/03/25/cpu%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%EF%BC%9F/image-20210325124930571.png" alt="image-20210325124930571"></p>
-<p>以下为常见逻辑门的符号表示：</p>
-<p><img src="https://mianbaoban-assets.oss-cn-shenzhen.aliyuncs.com/2021/1/iEjEFv.png" width="200" height="400"></p>
-<h2 id="振荡器（时钟）"><a href="#振荡器（时钟）" class="headerlink" title="振荡器（时钟）"></a>振荡器（时钟）</h2><p><img align="left" width="250" height="250" src="/2021/03/25/cpu%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%EF%BC%9F/image-20210325121220542.png"><img align="left" width="250" height="250" src="/2021/03/25/cpu%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%EF%BC%9F/image-20210325121235648.png"></p>
-<p>当接通时，磁力使开关断开，断开后失去磁力，就会再次接通电路。时钟就会不断地开关。</p>
-<h2 id="锁存器"><a href="#锁存器" class="headerlink" title="锁存器"></a>锁存器</h2><p>这是由两个或非门构造的触发器，称为 R - S（或 R e s e t - S e t，复位/置位）触发器</p>
-<p><img src="/2021/03/25/cpu%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%EF%BC%9F/image-20210325124413190.png" alt="image-20210325124413190"></p>
-<p>闭合上边的置位开关</p>
-<p><img src="/2021/03/25/cpu%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%EF%BC%9F/image-20210325124435107.png" alt="image-20210325124435107"></p>
-<p>这是即使你再断开开关，灯泡仍然会亮着</p>
-<p><img src="/2021/03/25/cpu%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%EF%BC%9F/image-20210325153936798.png" alt="image-20210325153936798"></p>
-<p>这时闭合下边的复位开关，灯泡熄灭</p>
-<p><img src="/2021/03/25/cpu%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%EF%BC%9F/image-20210325155210783.png" alt="image-20210325155210783"></p>
-<p>触发器的电路可以简化成：<img src="/2021/03/25/cpu%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%EF%BC%9F/image-20210325155525804.png" alt="image-20210325155525804"></p>
-<p>接下来我们改进这个触发器,我们加上输出Q为零的情况</p>
-<script type="math/tex; mode=display">
-\overline{Q}</script><p><img src="/2021/03/25/cpu%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%EF%BC%9F/image-20210325155741925.png" alt="image-20210325155741925"></p>
-<p>只要保持位为0，置位信号和复位信号都不会对电路输出产生影响</p>
-<p><img src="/2021/03/25/cpu%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%EF%BC%9F/image-20210325163116367.png" alt="image-20210325163116367"></p>
-<p>这就是一个电平触发的D型锁存器了，D（Data）表示数据端输入。所谓电平触发是指当 保持位输入为某一特定电平时，触发器才对数据端的输入值进行保存</p>
-<p>(更高级的触发器！)两个R-S触发器相连接，可以组成 边沿触发的D型触发器</p>
-<p><img src="/2021/03/25/cpu%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%EF%BC%9F/image-20210325164855645.png" alt="image-20210325164855645"></p>
-<p><img src="/2021/03/25/cpu%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%EF%BC%9F/image-20210325165041642.png" alt="image-20210325165041642"></p>
-<h1 id="cpu"><a href="#cpu" class="headerlink" title="cpu"></a>cpu</h1><p>2.3Ghz的cpu就是指每秒能够进行23亿次运算的cpu。也就是时钟每秒变化23亿次。</p>
-<p>cpu从内存条（RAM）上的0地址开始运行，每次时钟跳动，就往下跳一个地址。</p>
-<p>cpu运行的视频介绍可以参考：</p>
-<iframe src="//player.bilibili.com/player.html?aid=714780405&bvid=BV1LX4y1G7sQ&cid=315113451&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 100%; height: 500px; max-width: 100%；align:center; padding:20px 0;"> 
-</iframe>
-<iframe src="//player.bilibili.com/player.html?aid=417304618&bvid=BV1eV411e7k3&cid=316109728&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+        <h2 id="首先下载git项目的文件"><a href="#首先下载git项目的文件" class="headerlink" title="首先下载git项目的文件"></a>首先下载git项目的文件</h2><p>使用git clone下载到本地，或者下载zip，这里我解压到wechat文件夹</p>
+<h3 id="首先第一步，启动服务端"><a href="#首先第一步，启动服务端" class="headerlink" title="首先第一步，启动服务端"></a>首先第一步，启动服务端</h3><p><img src="/2024/11/18/%E6%90%AD%E5%BB%BA%E5%BE%AE%E4%BF%A1%E6%9C%BA%E5%99%A8%E4%BA%BA/image-20241118153013553.png" alt="image-20241118153013553">看到这个说明服务端启动成功</p>
+<h3 id="第二步启动web端并启动微信"><a href="#第二步启动web端并启动微信" class="headerlink" title="第二步启动web端并启动微信"></a>第二步启动web端并启动微信</h3><p>这里需要启动接下来的wechatrobot</p>
+<p>在web端新开一个后，扫码登录</p>
+<p>但是由于当前版本过低，我们要使用ce过版本检测</p>
+<p>找到这个地址 WeChatWin.dll+16276C4</p>
+<p>先附加到进程</p>
+<p>在ce中修改成较新的版本号，例如0x63090a13</p>
+<p>修改完成然后扫码</p>
+<p>可能没有修改成功，我们重开一个再修改</p>
+<p>这里就成功使web端接收到exe发来的websocket消息了</p>
+<p>我们可以自定义收到消息后给对方返回什么</p>
+<p>下断点看看能不能收到消息，接下来我用手机发送一个消息</p>
+<p>可以看到截获了消息</p>
+<p>使用sendText从web端给exe发送了消息成功</p>
+<p>你可以给这个sendtext函数加上一些判断，</p>
+<p>判断一个用户发来了一个请求，这边再用sendText给用户返回他需要的数据，比如验证码</p>
+<p>好了，今天就到此为止</p>
+
     </div>
 
     
@@ -304,13 +264,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/03/23/%E5%BB%BA%E8%AE%BE%E8%87%AA%E5%B7%B1%E7%9A%84ss%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%8C%E5%8C%BF%E5%90%8D%E4%B8%8A%E7%BD%91-1/" rel="prev" title="建设自己的ss代理服务器，匿名上网">
-      <i class="fa fa-chevron-left"></i> 建设自己的ss代理服务器，匿名上网
+    <a href="/2024/11/16/%E6%90%AD%E5%BB%BAedge-surf%E6%B8%B8%E6%88%8F%E8%81%94%E7%BD%91%E7%89%88/" rel="prev" title="搭建edge-surf游戏联网版">
+      <i class="fa fa-chevron-left"></i> 搭建edge-surf游戏联网版
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2021/03/26/%E5%BE%AE%E8%BD%AFsurf%E6%B8%B8%E6%88%8F%E4%BF%AE%E6%94%B9%EF%BC%8Chtml5%E6%B8%B8%E6%88%8F%E9%80%86%E5%90%91/" rel="next" title="微软surf游戏修改，html5游戏逆向">
-      微软surf游戏修改，html5游戏逆向 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -357,7 +314,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BC%95%E8%A8%80%EF%BC%9A%E9%80%BB%E8%BE%91%E9%97%A8%E7%94%B5%E8%B7%AF"><span class="nav-number">1.</span> <span class="nav-text">引言：逻辑门电路</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%A7%E7%94%B5%E5%99%A8"><span class="nav-number">1.1.</span> <span class="nav-text">继电器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%AF%E8%8D%A1%E5%99%A8%EF%BC%88%E6%97%B6%E9%92%9F%EF%BC%89"><span class="nav-number">1.2.</span> <span class="nav-text">振荡器（时钟）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%94%81%E5%AD%98%E5%99%A8"><span class="nav-number">1.3.</span> <span class="nav-text">锁存器</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#cpu"><span class="nav-number">2.</span> <span class="nav-text">cpu</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A6%96%E5%85%88%E4%B8%8B%E8%BD%BDgit%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%96%87%E4%BB%B6"><span class="nav-number">1.</span> <span class="nav-text">首先下载git项目的文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A6%96%E5%85%88%E7%AC%AC%E4%B8%80%E6%AD%A5%EF%BC%8C%E5%90%AF%E5%8A%A8%E6%9C%8D%E5%8A%A1%E7%AB%AF"><span class="nav-number">1.1.</span> <span class="nav-text">首先第一步，启动服务端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5%E5%90%AF%E5%8A%A8web%E7%AB%AF%E5%B9%B6%E5%90%AF%E5%8A%A8%E5%BE%AE%E4%BF%A1"><span class="nav-number">1.2.</span> <span class="nav-text">第二步启动web端并启动微信</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -558,59 +515,6 @@ jQuery(document).ready(function() {
   
 
   
-      
-
-<script>
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      loader: {
-        source: {
-          '[tex]/amsCd': '[tex]/amscd',
-          '[tex]/AMScd': '[tex]/amscd'
-        }
-      },
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              let target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
-        }
-      }
-    };
-    (function () {
-      var script = document.createElement('script');
-      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
-      script.defer = true;
-      document.head.appendChild(script);
-    })();
-  } else {
-    MathJax.startup.document.state(0);
-    MathJax.texReset();
-    MathJax.typeset();
-  }
-</script>
-
-    
 
   
 

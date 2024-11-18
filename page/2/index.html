@@ -25,27 +25,27 @@
   <meta name="description" content="本博客为纯静态网站">
 <meta property="og:type" content="website">
 <meta property="og:title" content="George的博客">
-<meta property="og:url" content="https://georgeguoxv.gitee.io/archives/2024/11/index.html">
+<meta property="og:url" content="https://georgeguoxv.gitee.io/page/2/index.html">
 <meta property="og:site_name" content="George的博客">
 <meta property="og:description" content="本博客为纯静态网站">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="George Guo">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://georgeguoxv.gitee.io/archives/2024/11/">
+<link rel="canonical" href="https://georgeguoxv.gitee.io/page/2/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : false,
+    isHome : true,
     isPost : false,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>归档 | George的博客</title>
+  <title>George的博客</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-K1BDW9XHBV"></script>
     <script>
@@ -162,91 +162,81 @@
         <div class="content-wrap">
           
 
-          <div class="content archive">
+          <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://georgeguoxv.gitee.io/2021/03/20/%E7%AC%94%E8%AE%B0%E6%9C%AC%E6%90%AD%E5%BB%BA%E7%BD%91%E7%AB%99/">
 
-  
-  
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">嗯..! 目前共计 11 篇日志。 继续努力。</span>
-      </div>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/favicon-32x32.png">
+      <meta itemprop="name" content="George Guo">
+      <meta itemprop="description" content="本博客为纯静态网站">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="George的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/03/20/%E7%AC%94%E8%AE%B0%E6%9C%AC%E6%90%AD%E5%BB%BA%E7%BD%91%E7%AB%99/" class="post-title-link" itemprop="url">如何在自己笔记本上搭建网站</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-03-20 14:20:56" itemprop="dateCreated datePublished" datetime="2021-03-20T14:20:56+08:00">2021-03-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-10 12:31:43" itemprop="dateModified" datetime="2021-05-10T12:31:43+08:00">2021-05-10</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2024</span>
+          <p>在自己的笔记本上部署个人网站，随时随地分享自己学习到的新知识，发现的新玩意</p>
+<h2 id="你需要："><a href="#你需要：" class="headerlink" title="你需要："></a><strong>你需要：</strong></h2><p>  一个http服务器：Python 里的simple-http-server和Flask；NodeJs里的Express 都是简单的http服务器；Tomcat；nginx；这种比较复杂，适合大型网站的服务器<br>  一个html网页文件：html是绝大多数网页所用的语言，你可以右键网页背景，查看网页原始码来查看一个网页的全部成分；<br>  一个公网ip或域名：因为要想别人能够访问你的网站，你的笔记本必须获得一个公网ip，或者域名<br>    获得公网ip的方法：（1） 与互联网运营商联系，申请将家里的光猫改为桥接模式，然后通过路由器拨号（如果没有使用路由器，使用笔记本拨号）获得一个在电脑关机之前都不会改变的公网ip；这时其他用户就可以通过公网，直接访问你的路由器的端口了，只需要路由器再将端口转发给笔记本的端口，用户就能访问你的笔记本上共享的文件了。（2） 如果你能够获得光猫管理员权限；也可自己修改光猫为桥接模式。<br>                      <strong>注意</strong>：移动不提供公网ipv4拨号，但可以使用ipv6；在有些公网ip紧张的地区，联通，电信的公网ipv4拨号也不会无偿提供。</p>
+<p>​    获得域名的方法：使用DDNS（动态域名解析服务），如花生壳，阿里云等动态域名解析服务，将你目前的ip地址对应成一个域名，写入到一个或多个DNS服务器中，用户访问你的域名时会连接到这个DNS服务器，这个DNS服务器将你的所在的公网ip，以及所在公网ip里的子网ip发送给用户<br>  端口转发（内网穿透）：将路由器某个端口对应到笔记本某个端口</p>
+<h2 id="参考链接："><a href="#参考链接：" class="headerlink" title="参考链接："></a>参考链接：</h2><p>  <a target="_blank" rel="noopener" href="https://post.smzdm.com/p/adwr4eed/">https://post.smzdm.com/p/adwr4eed/</a> 光猫改桥接</p>
+
+      
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2024-11-18T15:09:06+08:00"
-              content="2024-11-18">
-          11-18
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2024/11/18/%E6%90%AD%E5%BB%BA%E5%BE%AE%E4%BF%A1%E6%9C%BA%E5%99%A8%E4%BA%BA/" itemprop="url">
-            <span itemprop="name">搭建微信机器人</span>
-          </a>
-      </div>
-
-    </header>
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
   </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2024-11-16T21:42:24+08:00"
-              content="2024-11-16">
-          11-16
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2024/11/16/%E6%90%AD%E5%BB%BAedge-surf%E6%B8%B8%E6%88%8F%E8%81%94%E7%BD%91%E7%89%88/" itemprop="url">
-            <span itemprop="name">搭建edge-surf游戏联网版</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2024-11-12T21:39:42+08:00"
-              content="2024-11-12">
-          11-12
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2024/11/12/%E5%B0%86%E6%89%8B%E6%9C%BA%E5%8F%98%E6%88%90%E7%AA%83%E5%90%AC%E5%99%A8/" itemprop="url">
-            <span itemprop="name">未命名</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-
-    </div>
-  </div>
   
   
   
 
+
   
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
 
 
 

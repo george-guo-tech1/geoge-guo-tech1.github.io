@@ -168,6 +168,143 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://georgeguoxv.gitee.io/2024/11/18/%E6%90%AD%E5%BB%BA%E5%BE%AE%E4%BF%A1%E6%9C%BA%E5%99%A8%E4%BA%BA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/favicon-32x32.png">
+      <meta itemprop="name" content="George Guo">
+      <meta itemprop="description" content="本博客为纯静态网站">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="George的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/11/18/%E6%90%AD%E5%BB%BA%E5%BE%AE%E4%BF%A1%E6%9C%BA%E5%99%A8%E4%BA%BA/" class="post-title-link" itemprop="url">搭建微信机器人</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-11-18 15:09:06 / 修改时间：16:39:30" itemprop="dateCreated datePublished" datetime="2024-11-18T15:09:06+08:00">2024-11-18</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="首先下载git项目的文件"><a href="#首先下载git项目的文件" class="headerlink" title="首先下载git项目的文件"></a>首先下载git项目的文件</h2><p>使用git clone下载到本地，或者下载zip，这里我解压到wechat文件夹</p>
+<h3 id="首先第一步，启动服务端"><a href="#首先第一步，启动服务端" class="headerlink" title="首先第一步，启动服务端"></a>首先第一步，启动服务端</h3><p><img src="/2024/11/18/%E6%90%AD%E5%BB%BA%E5%BE%AE%E4%BF%A1%E6%9C%BA%E5%99%A8%E4%BA%BA/image-20241118153013553.png" alt="image-20241118153013553">看到这个说明服务端启动成功</p>
+<h3 id="第二步启动web端并启动微信"><a href="#第二步启动web端并启动微信" class="headerlink" title="第二步启动web端并启动微信"></a>第二步启动web端并启动微信</h3><p>这里需要启动接下来的wechatrobot</p>
+<p>在web端新开一个后，扫码登录</p>
+<p>但是由于当前版本过低，我们要使用ce过版本检测</p>
+<p>找到这个地址 WeChatWin.dll+16276C4</p>
+<p>先附加到进程</p>
+<p>在ce中修改成较新的版本号，例如0x63090a13</p>
+<p>修改完成然后扫码</p>
+<p>可能没有修改成功，我们重开一个再修改</p>
+<p>这里就成功使web端接收到exe发来的websocket消息了</p>
+<p>我们可以自定义收到消息后给对方返回什么</p>
+<p>下断点看看能不能收到消息，接下来我用手机发送一个消息</p>
+<p>可以看到截获了消息</p>
+<p>使用sendText从web端给exe发送了消息成功</p>
+<p>你可以给这个sendtext函数加上一些判断，</p>
+<p>判断一个用户发来了一个请求，这边再用sendText给用户返回他需要的数据，比如验证码</p>
+<p>好了，今天就到此为止</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://georgeguoxv.gitee.io/2024/11/16/%E6%90%AD%E5%BB%BAedge-surf%E6%B8%B8%E6%88%8F%E8%81%94%E7%BD%91%E7%89%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/favicon-32x32.png">
+      <meta itemprop="name" content="George Guo">
+      <meta itemprop="description" content="本博客为纯静态网站">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="George的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/11/16/%E6%90%AD%E5%BB%BAedge-surf%E6%B8%B8%E6%88%8F%E8%81%94%E7%BD%91%E7%89%88/" class="post-title-link" itemprop="url">搭建edge-surf游戏联网版</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-11-16 21:42:24 / 修改时间：21:52:12" itemprop="dateCreated datePublished" datetime="2024-11-16T21:42:24+08:00">2024-11-16</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="首先下载我的项目，我会放到github上，地址请从详情查看"><a href="#首先下载我的项目，我会放到github上，地址请从详情查看" class="headerlink" title="首先下载我的项目，我会放到github上，地址请从详情查看"></a>首先下载我的项目，我会放到github上，地址请从详情查看</h2><h2 id="运行服务器"><a href="#运行服务器" class="headerlink" title="运行服务器"></a>运行服务器</h2><p>进入根目录后运行 node server.js</p>
+<p>然后访问localhost:3000 看看效果</p>
+<h2 id="因为现在两个客户端的地形是分别生成的，所以两边速度不同步"><a href="#因为现在两个客户端的地形是分别生成的，所以两边速度不同步" class="headerlink" title="因为现在两个客户端的地形是分别生成的，所以两边速度不同步"></a>因为现在两个客户端的地形是分别生成的，所以两边速度不同步</h2><p>会js的朋友可以一起改进一下这个项目</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://georgeguoxv.gitee.io/2024/11/12/%E5%B0%86%E6%89%8B%E6%9C%BA%E5%8F%98%E6%88%90%E7%AA%83%E5%90%AC%E5%99%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -871,76 +1008,11 @@ a^{p-1} \equiv 1(\mod p)</script><h2 id="视频参考"><a href="#视频参考" c
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://georgeguoxv.gitee.io/2021/03/20/%E7%AC%94%E8%AE%B0%E6%9C%AC%E6%90%AD%E5%BB%BA%E7%BD%91%E7%AB%99/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/favicon-32x32.png">
-      <meta itemprop="name" content="George Guo">
-      <meta itemprop="description" content="本博客为纯静态网站">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="George的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/03/20/%E7%AC%94%E8%AE%B0%E6%9C%AC%E6%90%AD%E5%BB%BA%E7%BD%91%E7%AB%99/" class="post-title-link" itemprop="url">如何在自己笔记本上搭建网站</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-03-20 14:20:56" itemprop="dateCreated datePublished" datetime="2021-03-20T14:20:56+08:00">2021-03-20</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-10 12:31:43" itemprop="dateModified" datetime="2021-05-10T12:31:43+08:00">2021-05-10</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>在自己的笔记本上部署个人网站，随时随地分享自己学习到的新知识，发现的新玩意</p>
-<h2 id="你需要："><a href="#你需要：" class="headerlink" title="你需要："></a><strong>你需要：</strong></h2><p>  一个http服务器：Python 里的simple-http-server和Flask；NodeJs里的Express 都是简单的http服务器；Tomcat；nginx；这种比较复杂，适合大型网站的服务器<br>  一个html网页文件：html是绝大多数网页所用的语言，你可以右键网页背景，查看网页原始码来查看一个网页的全部成分；<br>  一个公网ip或域名：因为要想别人能够访问你的网站，你的笔记本必须获得一个公网ip，或者域名<br>    获得公网ip的方法：（1） 与互联网运营商联系，申请将家里的光猫改为桥接模式，然后通过路由器拨号（如果没有使用路由器，使用笔记本拨号）获得一个在电脑关机之前都不会改变的公网ip；这时其他用户就可以通过公网，直接访问你的路由器的端口了，只需要路由器再将端口转发给笔记本的端口，用户就能访问你的笔记本上共享的文件了。（2） 如果你能够获得光猫管理员权限；也可自己修改光猫为桥接模式。<br>                      <strong>注意</strong>：移动不提供公网ipv4拨号，但可以使用ipv6；在有些公网ip紧张的地区，联通，电信的公网ipv4拨号也不会无偿提供。</p>
-<p>​    获得域名的方法：使用DDNS（动态域名解析服务），如花生壳，阿里云等动态域名解析服务，将你目前的ip地址对应成一个域名，写入到一个或多个DNS服务器中，用户访问你的域名时会连接到这个DNS服务器，这个DNS服务器将你的所在的公网ip，以及所在公网ip里的子网ip发送给用户<br>  端口转发（内网穿透）：将路由器某个端口对应到笔记本某个端口</p>
-<h2 id="参考链接："><a href="#参考链接：" class="headerlink" title="参考链接："></a>参考链接：</h2><p>  <a target="_blank" rel="noopener" href="https://post.smzdm.com/p/adwr4eed/">https://post.smzdm.com/p/adwr4eed/</a> 光猫改桥接</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
 
 
 
@@ -987,7 +1059,7 @@ a^{p-1} \equiv 1(\mod p)</script><h2 id="视频参考"><a href="#视频参考" c
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
